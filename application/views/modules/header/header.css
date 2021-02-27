@@ -1,0 +1,117 @@
+/*header*/
+.header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+}
+.container{
+    width: 100%;
+    height: 70px;
+    border-bottom: 1px solid #654145;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+}
+.nav-container{
+    width: 100%;
+    min-width: 600px;
+    max-width: 1560px;
+    display: flex;
+    justify-content: space-between;
+    flex-shrink: 1;
+    margin-left: 6.59vw;
+}
+.logo{
+    display: flex;
+    align-items: center;
+}
+.logo span{
+    font-family: Raleway;
+    font-size: 18px;
+    color: #654145;
+    font-weight: 400;
+}
+.logo img{
+    margin-right: 12px;
+}
+.nav-container ul{
+    display:inline-flex;
+}
+.nav-container ul li{
+    list-style: none;
+    margin-left: 37px;
+}
+.nav-container ul li a{
+    text-decoration: none;
+    font-family: Raleway;
+    font-size: 18px;
+    font-weight: 400;
+    color: #654145;
+}
+.nav-container ul li a:hover{
+    text-decoration: underline;
+}
+.container svg{ /*Поиск*/
+    width: 90px;
+    flex-shrink: 0;
+}
+.extended-menu{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #654145;
+    background: white;
+}
+.extended-container{
+    display: flex;
+    position: relative;
+    max-width: 1650px;
+    min-width: 600px;
+    width: 100%;
+    margin:10px 10px 10px 6.59vw;
+    opacity: 0;
+    pointer-events: none;
+}
+.menu {
+    border-right: 1px solid #30654145;
+}
+.menu ul{
+    display:flex;
+    flex-direction: column;
+    padding: 0px 50px 0px 0px;
+    margin: 7px 0px;
+}
+.menu ul li{
+    list-style: none;
+    margin-bottom: 6px;
+}
+.menu ul li a{
+    text-decoration: none;
+    font-family: Raleway;
+    font-size: 24px;
+    font-weight: 700;
+    color: #654145;
+}
+.input{
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+.open{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.open svg{
+    margin-right: 10px;
+    margin-top: -1px;
+}
+.open svg path{
+    transform-origin: center;
+    transform: rotate(180deg);
+}
+
