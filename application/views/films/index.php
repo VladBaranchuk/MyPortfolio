@@ -36,9 +36,30 @@
 </head>
 <body>
     <?php require_once(ROOT . '/application/views/modules/header/header.php') ?>
-    <div class="root">
-        <!-- Здесь начинается страница -->
+    <div class="body">
+        <div class="root">
+            <!-- Здесь начинается страница -->
 
+            <div class="disclaimer">
+                <p>Образовательные кинопрограммы, специальные ретроспективы к выставкам, классика отечественного и мирового кино, премьерные показы новых картин, лучшие авторские фильмы в прокате, встречи и дискуссии с режиссёрами, актёрами, кинокритиками и киноведами. Показы программы «Кино» проходят в онлайн пространствах Галереи.
+                </p>
+                <svg width="36" height="18" viewBox="0 0 36 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M34.1455 0.499997L18 17.2789L1.85451 0.499999L34.1455 0.499997Z" fill-opacity="0" fill="#654145" stroke="#654145"/>
+                </svg>
+            </div>
+            <div class="films">
+                <div class="month">
+                    
+                </div>
+                <div class="film">
+                    
+                </div>
+                <div class="genre">
+                    
+                </div>
+            </div>
+
+        </div>
         <?php require_once(ROOT . '/application/views/modules/lift/lift.php') ?>
     </div>  
     <?php require_once(ROOT . '/application/views/modules/footer/footer.php') ?>

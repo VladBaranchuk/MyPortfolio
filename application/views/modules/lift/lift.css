@@ -1,9 +1,8 @@
 .lift{
+	width: 98.5%;
 	display: flex;
 	justify-content: flex-end;
     position: sticky;
-    margin-right: 10px;
     margin-bottom: 10px;
     bottom: 10px;
-    right: 10px;
 }
