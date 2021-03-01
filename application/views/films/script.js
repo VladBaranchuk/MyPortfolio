@@ -6,7 +6,7 @@ let triangOpacity = window.getComputedStyle(triangle).fillOpacity;		// теку�
 
 document.querySelector('.disclaimer svg').onclick = () => {
 
-	let scrollFilms = document.querySelector('.films').getBoundingClientRect().top + pageYOffset; 	// текущее значение высоты							//
+	let scrollFilms = document.querySelector('.films').getBoundingClientRect().top + pageYOffset - 120; 	// текущее значение высоты c учетом margin 120px	
 
 	//window scrollTo()
 	Global.animate({
@@ -30,7 +30,7 @@ document.querySelector('.disclaimer svg').onclick = () => {
             func(initialParam - finalParam);
         
 		}, 
-		duration: 300,  				//duration
+		duration: 500,  				//duration
 		timing: (timeFraction) => {	//timing function
 		 	return timeFraction;
 		}

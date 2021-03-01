@@ -82,7 +82,7 @@
     pointer-events: none;
 }
 .menu {
-    border-right: 1px solid #30654145;
+    border-right: 1px solid #6541454D;
 }
 .menu ul{
     display:flex;
@@ -98,7 +98,7 @@
     text-decoration: none;
     font-family: Raleway;
     font-size: 24px;
-    font-weight: 700;
+    font-weight: bold;
     color: #654145;
 }
 .input{

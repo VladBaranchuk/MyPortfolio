@@ -48,14 +48,33 @@
                 </svg>
             </div>
             <div class="films">
-                <div class="month">
-                    
+                <div class="months">
+                    <div class="month">
+                        Сентябрь
+                    </div>
                 </div>
-                <div class="film">
-                    
+                <div class="film-container">
+                    <div class="film">
+                        <div class="info">
+                            <div class="name">
+                                ЗАГАДКА РАФАЭЛЯ 12+
+                            </div>
+                            <div class="price-date-status">
+                                <div class="date">7 BYN</div>
+                                <div class="price-status">
+                                    <div>12 сентября</div>
+                                    <div>показ</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="genre">
-                    
+                    <ul>
+                        <li>Художественное</li>
+                        <li>Документальное</li>
+                        <li>Историческое</li>
+                    </ul>
                 </div>
             </div>
 
