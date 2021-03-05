@@ -1,0 +1,154 @@
+.body{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin-top: 70px;
+	max-width: 1366px;
+	min-width: 600px;
+}
+.root{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom:62px;
+}
+.id-information{
+	width: 100%;
+	margin:0px 58px;
+	margin-top: 40px;
+	display: flex;
+}
+.id-information img{
+	width: 625px;
+	margin-right: 105px;
+}
+.content{
+	width: 100%;
+	display:flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.name{
+	width: 100%;
+	font-family: Raleway;
+	font-size: 34px;
+	font-weight: bold;
+	font-style: normal;
+	margin: 24px 0px 0px 0px;
+	font-feature-settings: 'pnum' on, 'lnum' on;
+}
+.price-date-status{
+	width: 100%;
+	display: flex;
+	font-family: Raleway;
+	font-size: 18px;
+	font-weight: bold;
+	font-feature-settings: 'pnum' on, 'lnum' on;
+}
+.price{
+	width: 240px;
+	height: 65px;
+	margin-right: 20px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	background: #654145;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.date-status{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	border-left: 1px solid #654145;
+	padding-left: 20px; 
+}
+.genre{
+	font-family: Raleway;
+	font-size: 24px;
+	font-weight: bold;
+}
+.genre ul{
+	position: sticky;
+	top:120px;
+	display:flex;
+    flex-direction: column;
+    margin:0px;
+    z-index:1;
+}
+.genre li{
+	list-style: none;
+	margin-bottom: 6px;
+}
+.ds{
+	display: flex;
+	justify-content: space-between;
+}
+
+.film{
+	width: 100%;
+	margin:0px 58px;
+	margin-top: 125px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+/*видео*/
+.youtube {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    transition: all 200ms ease-out;
+    cursor: pointer;
+    margin:0px 58px;
+}
+.youtube .play {
+    background: url('/application/views/template/images/films/youtube-play-btn.png') no-repeat ; /*ВАЖНО: здесь укажите адрес до изображения*/
+    background-position: 0 -50px;
+    -webkit-background-size: 100% auto;
+    background-size: 100% auto;
+    position: absolute;
+    height: 50px;
+    width: 69px;
+    transition: none;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+}
+.youtube:hover .play {
+    background-position: 0 0;
+}
+
+.data{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 58px;
+	margin-left: 58px;
+	margin-right: 58px;
+}
+.text{
+	width: 666px;
+	display: flex;
+	flex-direction: column;
+	font-family: "Raleway";
+	font-size: 24px;
+}
+.description{
+	margin-bottom: 58px;
+}
+.country{
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+.producer{
+	font-weight: 500;
+}

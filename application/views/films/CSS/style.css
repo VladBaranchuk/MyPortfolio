@@ -84,6 +84,9 @@
 	color:white;
 	text-decoration: none;
 }
+.name a:hover{
+	text-decoration: underline;
+}
 .price-date-status{
 	width: 100%;
 	display: flex;

@@ -11,10 +11,10 @@
     <link href="/application/views/modules/footer/footer.css" rel="stylesheet" type="text/css" >
     <link href="/application/views/modules/lift/lift.css" rel="stylesheet" type="text/css" >
     <!-- стиль -->
-    <link href="/application/views/films/style.css" rel="stylesheet" type="text/css" >
+    <link href="/application/views/films/CSS/style.css" rel="stylesheet" type="text/css" >
 
     <!-- SimpleBar script-->
-    <script defer src="/application/views/template/simplebar/simplebar.js"></script>
+    <!-- <script defer src="/application/views/template/simplebar/simplebar.js"></script> -->
     <!-- глобальный скрипт -->
     <script defer type="module" src="/application/views/template/JS/cls_Global.js"></script>
     <!-- скрипты модулей -->
@@ -22,7 +22,7 @@
     <script defer type="module" src="/application/views/modules/footer/script.js"></script>
     <script defer type="module" src="/application/views/modules/lift/script.js"></script>
     <!-- скрипт --> 
-    <script defer type="module" src="/application/views/films/script.js"></script>
+    <script defer type="module" src="/application/views/films/JS/script.js"></script>
     <noscript>
       <style>
         /**
@@ -56,9 +56,7 @@
 
                 <div class="film-container">
 
-                <?php foreach ($filmsList as $filmItem):?>
-
-
+                <?php foreach ($filmsList as $filmItem): ?>
 
                     <div class="film" style="background: url(<?php echo '/application/views/template/images/films/' . $filmItem['film_id'] . '.jpg' ?>) no-repeat center;">
                         <div class="info">
@@ -84,7 +82,8 @@
                             </div>
                         </div>
                     </div>
-                <?php endforeach;?>
+
+                <?php endforeach; ?>
 
                 </div>
 

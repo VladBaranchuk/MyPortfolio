@@ -18,9 +18,7 @@
 			
 			$filmsItem = Films::getFilmsItemById($id);
 
-			echo '<pre>';
-			print_r($filmsItem);
-			echo '</pre>';
+			require_once(ROOT . '/application/views/films/indexId.php');
 
 			return true;
 		}

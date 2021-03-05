@@ -1,4 +1,4 @@
-import Global from "../template/JS/cls_Global.js";
+import Global from "../../template/JS/cls_Global.js";
 
 let triangle = document.querySelector('.disclaimer svg path');  // items
 
