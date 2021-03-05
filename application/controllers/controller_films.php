@@ -1,6 +1,7 @@
 <?php 
 
 	include_once ROOT . '/application/models/Films.php';
+	include_once ROOT . '/application/components/TimeHelper.php';
 
 	class FilmsController{
 

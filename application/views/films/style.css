@@ -11,6 +11,7 @@
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
+	margin-bottom:62px;
 }
 .disclaimer{
 	width: 100%;
@@ -45,6 +46,7 @@
 }
 .month{
 	position: sticky;
+	z-index: 1;
 	top:120px;
 	width: 100%;
 }
@@ -54,16 +56,16 @@
 .film{
 	width:100%;
 	height:490px;
-	background: url('/application/views/template/images/deleteme.jpg') no-repeat center;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
+	margin-bottom: 58px;
 }
 .info{
 	width: 100%;
 	height: 156px;
-	background: #14100FE6;
-	color:#E9BD8D;
+	background: #654145E6;
+	color: white;
 	display:flex;
 }
 .name{
@@ -75,8 +77,12 @@
 	margin: 10px 0px 10px 30px;
 	padding: 14px 30px 14px 0px;
 	font-feature-settings: 'pnum' on, 'lnum' on;
-	border-right: 1px solid #E1B6814D;
+	border-right: 1px solid #ffffff4D;
 	flex-shrink: 0;
+}
+.name a{
+	color:white;
+	text-decoration: none;
 }
 .price-date-status{
 	width: 100%;
@@ -88,15 +94,15 @@
 	font-weight: bold;
 	font-feature-settings: 'pnum' on, 'lnum' on;
 }
-.date{
+.price{
 	width: 100%;
 	padding:22px 0px;
 	margin-bottom: 22px;
-	border: 1px solid #E1B681;
+	border: 1px solid #ffffff;
 	display: flex;
 	justify-content: center;
 }
-.price-status{
+.date-status{
 	display: flex;
 	justify-content: space-between;
 }
@@ -112,6 +118,7 @@
 	display:flex;
     flex-direction: column;
     margin:0px;
+    z-index:1;
 }
 .genre li{
 	list-style: none;

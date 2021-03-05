@@ -2,7 +2,7 @@
 
 	return array(
 
-		// films/artistic
+		// '' => 'main/index',
 		'films/([0-9]+)' => 'films/view/$1',
 		'films' => 'films/index'
 	);

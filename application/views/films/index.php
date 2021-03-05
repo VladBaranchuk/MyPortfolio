@@ -53,24 +53,48 @@
                         Сентябрь
                     </div>
                 </div>
+
                 <div class="film-container">
-                    <div class="film">
+
+                <?php foreach ($filmsList as $filmItem):?>
+
+
+
+                    <div class="film" style="background: url(<?php echo '/application/views/template/images/films/' . $filmItem['film_id'] . '.jpg' ?>) no-repeat center;">
                         <div class="info">
                             <div class="name">
-                                ЗАГАДКА РАФАЭЛЯ 12+
+                                <a href="/films/<?php echo $filmItem['film_id']; ?>" >
+                                    <?php echo $filmItem['name']; ?>
+                                </a>
                             </div>
                             <div class="price-date-status">
-                                <div class="date">7 BYN</div>
-                                <div class="price-status">
-                                    <div>12 сентября</div>
-                                    <div>показ</div>
+                                <div class="price">
+                                    <?php echo $filmItem['price'] . ' BYN'; ?>
+                                </div>
+                                <div class="date-status">
+                                    <div>
+                                        <?php 
+                                        echo TimeHelper::create($filmItem['date'] . ' 00:00:00')->longDate();
+                                        ?>
+                                    </div>
+                                    <div>
+                                        <?php echo $filmItem['status']; ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                <?php endforeach;?>
+
                 </div>
+
                 <div class="genre">
                     <ul>
+
+                        <!-- <?php 
+                            // ColorAnalizator::Color(ROOT . '/application/views/template/images/films/1.jpg');
+                         ?> -->
+
                         <li>Художественное</li>
                         <li>Документальное</li>
                         <li>Историческое</li>
