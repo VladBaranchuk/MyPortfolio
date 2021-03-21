@@ -1,0 +1,104 @@
+body{
+	width: 100vw;
+	height: 100vh;
+	background: url('/application/views/template/images/registration.jpg') no-repeat center;
+	background-size: cover;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+.back{
+	width: 286px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-start;
+	height: 100vh;
+}
+.reg{
+	display: flex;
+	align-items: flex-end;
+	flex-direction: column;
+	font-family: Raleway;
+    font-size: 24px;
+    font-weight: bold;
+    width: 354px;
+    height: 79vh;
+    padding-top: 21vh;
+}
+.reg div{
+	margin-bottom: 15px;
+}
+.back svg{
+	margin: 26px;
+}
+.login, .signup{
+	height: 79vh;
+	padding-top: 21vh;
+}
+.signup{
+	opacity: 0;
+	display: none;
+}
+#signup{
+	opacity: 0.6;
+}
+form{
+    width: 610px;
+    display: flex;
+    justify-content: space-between;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    margin:0 58px;
+}
+input{
+    padding-left: 18px;
+    padding-bottom: 1px;
+    box-sizing: border-box;
+    font-family: Raleway;
+    font-size: 18px;
+    border:1px solid #654145;
+}
+.login [name="name"], .login [name="surname"], .login [name="login"], .login [name="middlename"], .login [name="password"], .login [name="confirmPassword"], .signup [name="password"], .signup [name="confirmPassword"] {
+    width: 300px;
+    height: 60px;
+    color:#654145;
+    margin-bottom: 10px;
+}
+.login [name="email"]{
+    width: 100%;
+    height: 60px;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    margin-bottom: 10px;
+    color:#654145;
+}
+.login [name="message"]{
+    width: 100%;
+    height: 200px;
+    padding-bottom: 149px;
+    margin-bottom: 10px;
+    color:#654145;
+}
+[type="submit"]{
+    margin: 0px auto;
+    width: 300px;
+    height: 60px;
+    margin-top:48px;
+    background: #654145;
+    color:white;
+    padding: 0px;
+}
+[type="reset"]{
+    margin: 0px auto;
+    width: 300px;
+    height: 60px;
+    margin-top:48px;
+    background: white;
+    color:#654145;
+    padding: 0px;
+}
+.signup [name="login"]{
+	width: 100%;
+    height: 60px;
+    color:#654145;
+    margin-bottom: 10px;
+}

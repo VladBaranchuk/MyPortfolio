@@ -50,6 +50,63 @@
 			return $newList;
 		}
 
+		public static function getFilmsListLimit($limit, $position = 0){
+
+			$db = DB::getConnection();
+			$newList = array();
+
+			$result = $db->query('SELECT film_id, name, price, genre, date, status, description, country, year, time, producer '
+					. 'FROM film '
+					. 'ORDER BY date DESC '
+					. 'LIMIT ' . $position . ',' . $limit);
+
+			$i = 0;
+			while($row = $result->fetch()) {
+				$newList[$i]['film_id'] = $row['film_id'];
+				$newList[$i]['name'] = $row['name'];
+				$newList[$i]['price'] = $row['price'];
+				$newList[$i]['genre'] = $row['genre'];
+				$newList[$i]['date'] = $row['date'];
+				$newList[$i]['status'] = $row['status'];
+				$newList[$i]['description'] = $row['description'];
+				$newList[$i]['country'] = $row['country'];
+				$newList[$i]['year'] = $row['year'];
+				$newList[$i]['time'] = $row['time'];
+				$newList[$i]['producer'] = $row['producer'];
+				$i++;
+			}
+
+			return $newList;
+		}
+
+		public static function getArtisticList($genre){
+
+			$db = DB::getConnection();
+			$newList = array();
+
+			$result = $db->query('SELECT film_id, name, price, genre, date, status, description, country, year, time, producer '
+					.	'FROM film '
+					.	'WHERE genre = "' . $genre . '" '
+					.	'ORDER BY date DESC');
+
+			$i = 0;
+			while($row = $result->fetch()) {
+				$newList[$i]['film_id'] = $row['film_id'];
+				$newList[$i]['name'] = $row['name'];
+				$newList[$i]['price'] = $row['price'];
+				$newList[$i]['genre'] = $row['genre'];
+				$newList[$i]['date'] = $row['date'];
+				$newList[$i]['status'] = $row['status'];
+				$newList[$i]['description'] = $row['description'];
+				$newList[$i]['country'] = $row['country'];
+				$newList[$i]['year'] = $row['year'];
+				$newList[$i]['time'] = $row['time'];
+				$newList[$i]['producer'] = $row['producer'];
+				$i++;
+			}
+
+			return $newList;
+		}
 	}
 
  ?>

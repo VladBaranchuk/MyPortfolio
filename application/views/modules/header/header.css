@@ -32,7 +32,12 @@
     max-width: 1560px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-shrink: 0;
+}
+.nav-container a{
+    text-decoration: none;
+    height: 48px;
 }
 .logo{
     display: flex;

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <!-- SimpleBar style-->
-    <link href="/application/views/template/simplebar/simplebar.css" rel="stylesheet" type="text/css"/>
+    <!-- <link href="/application/views/template/simplebar/simplebar.css" rel="stylesheet" type="text/css"/> -->
     <!-- глобальный стиль -->
     <link href="/application/views/template/CSS/global.css" rel="stylesheet" type="text/css" >
     <!-- стили модулей -->
@@ -58,7 +58,7 @@
 
                 <?php foreach ($filmsList as $filmItem): ?>
 
-                    <div class="film" style="background: url(<?php echo '/application/views/template/images/films/' . $filmItem['film_id'] . '.jpg' ?>) no-repeat center;">
+                    <div class="film" style="background-image: url(<?php echo '/application/views/template/images/films/' . $filmItem['film_id'] . '.jpg' ?>);">
                         <div class="info">
                             <div class="name">
                                 <a href="/films/<?php echo $filmItem['film_id']; ?>" >
@@ -93,10 +93,10 @@
                         <!-- <?php 
                             // ColorAnalizator::Color(ROOT . '/application/views/template/images/films/1.jpg');
                          ?> -->
-
-                        <li>Художественное</li>
-                        <li>Документальное</li>
-                        <li>Историческое</li>
+                        <li id="all">Все</li>
+                        <li id="artistic">Художественное</li>
+                        <li id="documentary">Документальное</li>
+                        <li id="historical">Историческое</li>
                     </ul>
                 </div>
             </div>

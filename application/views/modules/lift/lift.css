@@ -5,4 +5,5 @@
     position: sticky;
     margin-bottom: 10px;
     bottom: 10px;
+    z-index: 9999;
 }

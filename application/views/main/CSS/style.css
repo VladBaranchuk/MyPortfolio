@@ -31,30 +31,31 @@
 	font-size: 24px;
 	text-align: justify;
 }
-.films{
+.main{
 	width: 100%;
 	margin:50px 58px 0px;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
 }
-.months{
-	font-family: 'Playfair Display';
-	font-size: 31px;
+.section-name{
+	font-family: Raleway;
+	font-size: 24px;
 	font-weight: bold;
-	width: 149px;
-}
-.month{
-	position: sticky;
-	z-index: 1;
-	top:120px;
 	width: 100%;
+	margin-bottom: 40px;
+	display: flex;
+	justify-content: center;
 }
 .film-container{
-	width: 654px;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
 }
 .film{
-	width:100%;
-	height:490px;
+	width:596px;
+	height:447px;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
@@ -71,9 +72,9 @@
 	display:flex;
 }
 .name{
-	width: 267px;
+	width: 216px;
 	font-family: Raleway;
-	font-size: 24px;
+	font-size: 22px;
 	font-weight: bold;
 	font-style: normal;
 	margin: 10px 0px 10px 30px;
@@ -93,7 +94,7 @@
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	margin:30px 44px 0px 44px;
+	margin:27px 40px 0px 40px;
 	font-family: Raleway;
 	font-size: 18px;
 	font-weight: bold;
@@ -111,25 +112,15 @@
 	display: flex;
 	justify-content: space-between;
 }
-.genre{
-	width: 330px;
+.more{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	font-family: Raleway;
-	font-size: 24px;
+	font-size: 18px;
 	font-weight: bold;
+	margin:0px auto;
 }
-.genre ul{
-	position: sticky;
-	top:120px;
-	display:flex;
-    flex-direction: column;
-    margin:0px;
-    z-index:1;
-}
-.genre li{
-	list-style: none;
-	margin-bottom: 6px;
-	opacity: 0.6;
-}
-#all{
-	opacity: 1;
+.more svg{
+	margin-top: 5px;
 }

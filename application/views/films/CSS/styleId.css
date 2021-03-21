@@ -19,9 +19,14 @@
 	margin-top: 40px;
 	display: flex;
 }
-.id-information img{
+.img{
 	width: 625px;
+	height: 469px;
 	margin-right: 105px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	flex-shrink: 0;
 }
 .content{
 	width: 100%;
@@ -108,6 +113,9 @@
     cursor: pointer;
     margin:0px 58px;
 }
+iframe{
+	margin:0px 58px;
+}
 .youtube .play {
     background: url('/application/views/template/images/films/youtube-play-btn.png') no-repeat ; /*ВАЖНО: здесь укажите адрес до изображения*/
     background-position: 0 -50px;
@@ -152,3 +160,81 @@
 .producer{
 	font-weight: 500;
 }
+.comments{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin-top: 125px;
+	font-family: "Raleway";
+}
+.comments span{
+	display: block;
+	font-size: 24px;
+	font-weight: bold;
+}
+.input-comment{
+	display: flex;
+	justify-content: center;
+	margin-top: 40px;
+	padding-bottom:50px;
+	padding-right: 50px;
+	padding-left: 50px;
+	border-bottom: 1px solid #6541454D;
+}
+.input-comment form{
+	display: flex;
+	align-items: flex-end;
+}
+.input-comment textarea{
+	width: 597px;
+	height:150px;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding: 10px;
+	box-sizing: border-box;
+	font-family: "Raleway";
+	font-size: 18px;
+	border:1px solid #654145;
+	color:#654145;
+	resize: none;
+	overflow: auto;
+}
+.input-comment form button{
+	width: 24px;
+	height:24px;
+	border: none;
+	outline: none;
+	margin:0px;
+	padding: 0px;
+}
+.input-comment img{
+	align-self: flex-start;
+}
+.output-comments{
+	margin-top: 50px;
+	display: flex;
+	justify-content: flex-start;
+}
+.comment-ifn-container{
+	width: 597px;
+	display: flex;
+	flex-direction: column;
+	padding-right: 34px;
+	margin-left: 10px;
+	font-family: "Raleway";
+	font-size: 18px;
+	font-feature-settings: 'pnum' on, 'lnum' on;
+}
+.comment{
+	width: 100%;
+	text-align: justify;
+}
+.comment-information{
+	height: 50px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+

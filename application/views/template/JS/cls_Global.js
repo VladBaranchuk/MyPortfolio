@@ -17,6 +17,16 @@ class Global{
             }
         });
     }
+
+    static getDate = function(date){
+        var months = ["Января", "Февраля", "Марта", "Апреля", "Мая", "Июня", 
+                "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря"];
+                 
+        var myDate = new Date(date);
+        var fullDate = myDate.getDate() + " " + months[myDate.getMonth()];
+        // document.write(fullDate); // Сегодня: 18 Август 2015, Вторник
+        return fullDate;
+    }
 }
 
 export default Global;
