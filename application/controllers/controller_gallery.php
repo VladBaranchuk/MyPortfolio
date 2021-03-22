@@ -7,8 +7,14 @@
 	class GalleryController{
 
 		public function actionIndex(){ // Выпрашивает у модели список
+
+			if(!empty($_POST)){
+
+					$List = [Gallery::getArtsListLimit(6, $_POST['more']), Gallery::getLikesByArts(), Gallery::getСommentsByArts()];
+		        	exit(json_encode($List, JSON_UNESCAPED_UNICODE));
+			}
 			
-			$artsList = Gallery::getArtsListLimit(15);
+			$artsList = Gallery::getArtsListLimit(6);
 
 			$artsLike = Gallery::getLikesByArts();
 

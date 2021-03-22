@@ -46,14 +46,14 @@
 			return $newList;
 		}
 
-		public static function getArtsListLimit($limit){
+		public static function getArtsListLimit($limit, $position = 0){
 
 			$db = DB::getConnection();
 			$newList = array();
 
 			$result = $db->query('SELECT art_id, login, type, name, year, month, date '
 					. 'FROM art '
-					. 'LIMIT ' . $limit);
+					. 'LIMIT ' . $position . ',' . $limit);
 
 			$i = 0;
 			while($row = $result->fetch()) {

@@ -72,6 +72,7 @@
                 <div class="gallery-container">
 
 
+
                 <?php foreach ($artsList as $artItem): ?>
 
 
@@ -133,8 +134,6 @@
                                 
                                 <span id="share"></span>
 
-
-
                             </div>                
                         </div> 
                     </div>
@@ -143,10 +142,13 @@
                         <?= $artItem['login']; ?>
                     </a>
                 </div>
+
+
              
                 <?php endforeach; ?>
 
                 
+
         </div>
         <div class="more">
             БОЛЬШЕ
