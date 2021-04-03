@@ -77,10 +77,10 @@
 
 
 
-                <div class="art-container" >
+                <div class="art-container" id="<?php echo $artItem['art_id']; ?>">
                     <img src="/application/views/template/images/arts/<?php echo $artItem['art_id']; ?>.jpg" data-type="picture" alt="">
                     <div class="space">
-                        <a href="">
+                        <a href="<?php echo $artItem['art_id']; ?>">
                             <div class="inner-space">
                                 <svg id="first" class="corner" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M0.5 12.5V0.5H12.5" stroke="#FFFFFF" />
@@ -99,7 +99,30 @@
 
                             <div class="icons">
                                 <svg class="likes" width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2 0.5L9.5 3.32353L6.8 0.5H3.2L0.5 3.32353V7.08824L9.5 16.5L18.5 7.08824V3.32353L15.8 0.5H12.2Z" stroke="#FFFFFF"/>
+
+                                <?php
+
+                                    $flag = 0;
+
+                                    foreach ($userLikes as $userLike){
+                                       if($artItem['art_id'] == $userLike['art_id']){
+                                            $flag = 1;
+                                        } 
+                                    }
+
+                                ?>
+
+                                <?php if($flag == 1):?>
+
+                                    <path d="M12.2 0.5L9.5 3.32353L6.8 0.5H3.2L0.5 3.32353V7.08824L9.5 16.5L18.5 7.08824V3.32353L15.8 0.5H12.2Z" stroke="#FFFFFF" fill-opacity="1" fill="#FFFFFF"/>
+
+                                <?php else:?>
+
+                                        <path d="M12.2 0.5L9.5 3.32353L6.8 0.5H3.2L0.5 3.32353V7.08824L9.5 16.5L18.5 7.08824V3.32353L15.8 0.5H12.2Z" stroke="#FFFFFF" fill-opacity="0" fill="#FFFFFF"/>
+
+                                <?php endif; ?>
+
+
                                 </svg>
                                 <svg class="comments" width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect x="0.5" y="0.5" width="20" height="14" stroke="#FFFFFF"/>
@@ -147,7 +170,6 @@
              
                 <?php endforeach; ?>
 
-                
 
         </div>
         <div class="more">

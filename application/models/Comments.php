@@ -9,7 +9,7 @@
 
 			$result = $db->query('SELECT date, text ' . 
 			 	' FROM ' . $area . '_comments, comment ' . 
-			 	' WHERE ' . $area . '_comments.comment_id = comment.comment_id AND ' . $area . '_comments.login = "' . $login . '" AND film_comments.film_id = ' . $extension_id);
+			 	' WHERE ' . $area . '_comments.comment_id = comment.comment_id AND ' . $area . '_comments.login = "' . $login . '" AND ' . $area . '_comments.' . $area . '_id = ' . $extension_id);
 
 			$i = 0;
 			while($row = $result->fetch()) {

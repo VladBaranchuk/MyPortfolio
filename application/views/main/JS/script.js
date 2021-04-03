@@ -1,85 +1,292 @@
 import Global from "../../template/JS/cls_Global.js";
 
-function fetchSort(){
+let masonry = function(){
 
-	const url = '/';
+	var grid = document.querySelector('.gallery-container');
+	var msnry = new Masonry( grid, {
 
-	const count = document.querySelectorAll('.film').length;
+	  itemSelector: '.art-container',
+	  columnWidth: 378,
+	  gutter: 49
+	});
+}
 
-	const body = new FormData();
-	body.set('more', count);
+function findAncestor (el, cls) { // Поиск родительсого элемента
+    while ((el = el.parentElement) && !el.classList.contains(cls));
+    return el;
+}
 
+window.onload = masonry;
 
-	function sendRequest(method, url, body = null) {
-	  const headers = {
-	  }
+document.querySelector('.gallery-container').addEventListener("mouseover", (e) => {
 
-	  return fetch(url, {
-	    method: method,
-	    body: body,
-	    headers: headers
-	  }).then(response => {
-	    if (response.ok) {
-	      return response.json();
-	    }
+	if(e.target.className == 'inner-space'){
 
-	    return response.json().then(error => {
-	      const e = new Error('Что-то пошло не так')
-	      e.data = error
-	      throw e
-	    })
-	  })
-	}
+		let innerSpace = e.target;
 
+		innerSpace.addEventListener("mouseenter", (e) => {
 
-	sendRequest('POST', url, body)
-	  .then((data) => {
+			innerSpace = e.target;
 
-	  let container = document.querySelector('.film-container');
-	  let html;
-
-	  	for(let i = 0; i < data.length; i++){
-
-	  	let film = document.createElement('div');
-	  		film.className = 'film';
-	  		film.style.backgroundImage = "url('/application/views/template/images/films/" + data[i].film_id + ".jpg')";
-	  		film.style.opacity = 0;
-
-	  		html = "<div class='info'>"
-                        +	"<div class='name'>"
-                            +	"<a href='/films/" + data[i].film_id + "' >"
-                                +	 data[i].name
-                            +	"</a>"
-                        +	"</div>"
-                        + 	"<div class='price-date-status'>"
-                            +   "<div class='price'>"
-                                +   data[i].price + " BYN"
-                            +   "</div>"
-                            +   "<div class='date-status'>"
-                                +   "<div>"
-                                    +  	Global.getDate(data[i].date)
-                                +   "</div>"
-                                +   "<div>"
-                                    +  	data[i].status
-                                +   "</div>"
-                            +   "</div>"
-                        +   "</div>"
-                    +   "</div>";
-	  		
-	  		film.innerHTML = html;
-
-	  		container.appendChild(film);
-
-			// film Opacity
+			// inner-space fillOpacity
 			Global.animate({
 				draw: (progress) => {
 					//элемент,   свойство,   начальное значение,   конечное значение
 					//item,      property,   initialParam,         finalParam 
 					//поля требуют реализации
 
-					let item = film;
+					let item = innerSpace;
 		            let property = 'opacity';
-		            let initialParam = 0;
+		            let initialParam = window.getComputedStyle(innerSpace).opacity;
+		            let finalParam = 0.8;
+
+		            let frame = 0;
+
+		            let func = (step) => {
+		                frame += initialParam - progress * step; 
+		                item.style[property] = frame;
+		            }
+
+		            func(initialParam - finalParam);
+		        
+				}, 
+				duration: 100,  				//duration
+				timing: (timeFraction) => {	//timing function
+				 	return timeFraction;
+				}
+			});
+
+			let outerSpace = innerSpace.parentNode.nextSibling;
+
+			// outer-space fillOpacity
+			Global.animate({
+				draw: (progress) => {
+					//элемент,   свойство,   начальное значение,   конечное значение
+					//item,      property,   initialParam,         finalParam 
+					//поля требуют реализации
+
+					let item = outerSpace;
+		            let property = 'opacity';
+		            let initialParam = window.getComputedStyle(outerSpace).opacity;
+		            let finalParam = 0.6;
+
+		            let frame = 0;
+
+		            let func = (step) => {
+		                frame += initialParam - progress * step; 
+		                item.style[property] = frame;
+		            }
+
+		            func(initialParam - finalParam);
+		        
+				}, 
+				duration: 100,  				//duration
+				timing: (timeFraction) => {	//timing function
+				 	return timeFraction;
+				}
+			});
+
+			let outerBgColor = window.getComputedStyle(outerSpace).backgroundColor.match(/^rgba\((\d+),\s*(\d+),\s*(\d+),\s*(\d+|\d.\d+)\)$/);
+
+			// outer-space background color
+			Global.animate({
+				draw: (progress) => {
+					//элемент,   свойство,   начальное значение,   конечное значение
+					//item,      property,   initialParam,         finalParam 
+					//поля требуют реализации
+
+					let item = outerSpace;
+		            let property = 'backgroundColor';
+		            let initialParam = 0.7;
+		            let finalParam = 0;
+
+		            let frame = 0;
+
+		            let func = (step) => {
+		                frame += initialParam - progress * step; 
+		                item.style[property] = 'rgba(' + outerBgColor[1] + ', ' + outerBgColor[2] + ', ' + outerBgColor[3] + ', ' + frame + ')';
+		            }
+
+		            func(initialParam - finalParam);
+		        
+				}, 
+				duration: 100,  				//duration
+				timing: (timeFraction) => {	//timing function
+				 	return timeFraction;
+				}
+			});		
+
+		})
+	}
+
+	if(e.target.className == 'outer-space'){
+		let outerSpace = e.target;
+		let like = outerSpace.querySelector('.likes');
+		let id = findAncestor(like, 'art-container').id;
+
+		like.onclick = (e) =>{
+			const url = '/gallery/';
+
+			const body = new FormData();
+			body.set('id', id);
+
+			
+			function sendRequest(method, url, body = null) {
+			  const headers = {
+			  }
+
+			  return fetch(url, {
+			    method: method,
+			    body: body,
+			    headers: headers
+			  }).then(response => {
+			    if (response.ok) {
+			      return response.text();
+			    }
+
+			    return response.text().then(error => {
+			      const e = new Error('Что-то пошло не так')
+			      e.data = error
+			      throw e
+			    })
+			  })
+			}
+
+			sendRequest('POST', url, body)
+			  .then((data)=>{
+
+			  	console.log(data);
+
+			  	let likePath = like.querySelector('path');
+			  	let likeValue = outerSpace.querySelector('#likes');
+			  	let likeValueGet = outerSpace.querySelector('#likes').textContent;
+
+			  	if(data == 'true'){
+
+			  		// like fillOpacity
+					Global.animate({
+						draw: (progress) => {
+							//элемент,   свойство,   начальное значение,   конечное значение
+							//item,      property,   initialParam,         finalParam 
+							//поля требуют реализации
+
+							let item = likePath;
+				            let property = 'fillOpacity';
+				            let initialParam = window.getComputedStyle(likePath).fillOpacity;
+				            let finalParam = 1;
+
+				            console.log(initialParam);
+
+				            let frame = 0;
+
+				            let func = (step) => {
+				                frame += initialParam - progress * step; 
+				                item.style[property] = frame;
+				            }
+
+				            func(initialParam - finalParam);
+				        
+						}, 
+						duration: 50,  				//duration
+						timing: (timeFraction) => {	//timing function
+						 	return timeFraction;
+						}
+					});
+
+					likeValue.innerText = Number(likeValueGet) + 1;
+
+
+			  	}if(data == 'false'){
+
+			  		// like fillOpacity
+					Global.animate({
+						draw: (progress) => {
+							//элемент,   свойство,   начальное значение,   конечное значение
+							//item,      property,   initialParam,         finalParam 
+							//поля требуют реализации
+
+							let item = likePath;
+				            let property = 'fillOpacity';
+				            let initialParam = window.getComputedStyle(likePath).fillOpacity;
+				            let finalParam = 0;
+
+				            console.log(initialParam);
+
+				            let frame = 0;
+
+				            let func = (step) => {
+				                frame += initialParam - progress * step; 
+				                item.style[property] = frame;
+				            }
+
+				            func(initialParam - finalParam);
+				        
+						}, 
+						duration: 50,  				//duration
+						timing: (timeFraction) => {	//timing function
+						 	return timeFraction;
+						}
+					});
+
+					likeValue.innerText = Number(likeValueGet) - 1;
+
+			  	}
+
+
+			  })
+			  .catch(err => console.log(err))
+			};
+	}
+  		
+});
+
+document.querySelector('.gallery-container').addEventListener("mouseout", (e) => {
+
+	if(e.target.className == 'inner-space'){
+
+  		let innerSpace = e.target;
+
+  		if (innerSpace.parentNode.parentNode.contains(e.relatedTarget)) {  //innerSpace.parentNode.parentNode innerSpace -> a ->space
+  			// inner-space fillOpacity									// contains проверяет наследственность элемента (outerSpace к space)
+			Global.animate({
+				draw: (progress) => {
+					//элемент,   свойство,   начальное значение,   конечное значение
+					//item,      property,   initialParam,         finalParam 
+					//поля требуют реализации
+
+					let item = innerSpace;
+		            let property = 'opacity';
+		            let initialParam = 0.8;
+		            let finalParam = 0.6;
+
+		            let frame = 0;
+
+		            let func = (step) => {
+		                frame += initialParam - progress * step; 
+		                item.style[property] = frame;
+		            }
+
+		            func(initialParam - finalParam);
+		        
+				}, 
+				duration: 100,  				//duration
+				timing: (timeFraction) => {	//timing function
+				 	return timeFraction;
+				}
+			});
+
+			let outerSpace = innerSpace.parentNode.nextSibling;
+
+			// outer-space fillOpacity
+			Global.animate({
+				draw: (progress) => {
+					//элемент,   свойство,   начальное значение,   конечное значение
+					//item,      property,   initialParam,         finalParam 
+					//поля требуют реализации
+
+					let item = outerSpace;
+		            let property = 'opacity';
+		            let initialParam = window.getComputedStyle(outerSpace).opacity;
 		            let finalParam = 1;
 
 		            let frame = 0;
@@ -92,17 +299,101 @@ function fetchSort(){
 		            func(initialParam - finalParam);
 		        
 				}, 
-				duration: 200,  				//duration
+				duration: 100,  				//duration
 				timing: (timeFraction) => {	//timing function
 				 	return timeFraction;
 				}
 			});
-	  	}
-	  })
-	  .catch(err => console.log(err))
-}
 
-document.querySelector('.more').onclick = () => {
+			let outerBgColor = window.getComputedStyle(outerSpace).backgroundColor.match(/^rgba\((\d+),\s*(\d+),\s*(\d+),\s*(\d+|\d.\d+)\)$/);
 
-	fetchSort();
-}
+			// outer-space background color
+			Global.animate({
+				draw: (progress) => {
+					//элемент,   свойство,   начальное значение,   конечное значение
+					//item,      property,   initialParam,         finalParam 
+					//поля требуют реализации
+
+					let item = outerSpace;
+		            let property = 'backgroundColor';
+		            let initialParam = 0;
+		            let finalParam = 0.7;
+
+		            let frame = 0;
+
+		            let func = (step) => {
+		                frame += initialParam - progress * step; 
+		                item.style[property] = 'rgba(' + outerBgColor[1] + ', ' + outerBgColor[2] + ', ' + outerBgColor[3] + ', ' + frame + ')';
+		            }
+
+		            func(initialParam - finalParam);
+		        
+				}, 
+				duration: 100,  				//duration
+				timing: (timeFraction) => {	//timing function
+				 	return timeFraction;
+				}
+			});
+  		}
+  		else{
+
+  			// inner-space fillOpacity	
+			Global.animate({
+				draw: (progress) => {
+					//элемент,   свойство,   начальное значение,   конечное значение
+					//item,      property,   initialParam,         finalParam 
+					//поля требуют реализации
+
+					let item = innerSpace;
+		            let property = 'opacity';
+		            let initialParam = 0.6;
+		            let finalParam = 0;
+
+		            let frame = 0;
+
+		            let func = (step) => {
+		                frame += initialParam - progress * step; 
+		                item.style[property] = frame;
+		            }
+
+		            func(initialParam - finalParam);
+		        
+				}, 
+				duration: 100,  				//duration
+				timing: (timeFraction) => {	//timing function
+				 	return timeFraction;
+				}
+			});
+
+			let outerSpace = innerSpace.parentNode.nextSibling;
+
+			// outer-space fillOpacity
+			Global.animate({
+				draw: (progress) => {
+					//элемент,   свойство,   начальное значение,   конечное значение
+					//item,      property,   initialParam,         finalParam 
+					//поля требуют реализации
+
+					let item = outerSpace;
+		            let property = 'opacity';
+		            let initialParam = 1;
+		            let finalParam = 0;
+
+		            let frame = 0;
+
+		            let func = (step) => {
+		                frame += initialParam - progress * step; 
+		                item.style[property] = frame;
+		            }
+
+		            func(initialParam - finalParam);
+		        
+				}, 
+				duration: 100,  				//duration
+				timing: (timeFraction) => {	//timing function
+				 	return timeFraction;
+				}
+			});							
+  		}
+	}
+});

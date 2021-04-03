@@ -11,8 +11,8 @@
 			$db = DB::getConnection();
 			
 			$result = $db->query('SELECT * '
-					. 'FROM film '
-					. 'WHERE film_id=' . $id);
+					. 'FROM art '
+					. 'WHERE art_id = ' . $id);
 			}
 
 			$result->setFetchMode(PDO::FETCH_ASSOC);
@@ -91,14 +91,49 @@
 			return $newList;
 		}
 
+		public static Function setUpLikesByArts($id, $login){
+			
+
+			$db = DB::getConnection();
+			$newList = array();
+
+			$result = $db->query('INSERT INTO likes_art (art_id, login) VALUES (' . $id . ', "' . $login . '")');
+
+
+			if(!$result){
+				$db->query('DELETE FROM likes_art WHERE art_id = ' . $id . ' and login = "' . $login . '"');
+
+				return 'false';
+			}
+
+			return 'true';
+
+		}
+
+		public static function getLikesListByArtsFromUser($login){
+
+			$db = DB::getConnection();
+			$newList = array();
+
+			$result = $db->query('SELECT art_id FROM likes_art WHERE login = "' . $login . '"');
+
+			$i = 0;
+			while($row = $result->fetch()) {
+				$newList[$i]['art_id'] = $row['art_id'];
+				$i++;
+			}
+
+			return $newList;
+		}
+
 		public static function getСommentsByArts(){
 
 			$db = DB::getConnection();
 			$newList = array();
 
-			$result = $db->query('SELECT art.art_id AS art_id, COUNT(comments_art.art_id) AS comments '
+			$result = $db->query('SELECT art.art_id AS art_id, COUNT(art_comments.art_id) AS comments '
 							.	'FROM art '
-							.	'LEFT JOIN comments_art ON art.art_id = comments_art.art_id '
+							.	'LEFT JOIN art_comments ON art.art_id = art_comments.art_id '
 							.	'GROUP BY art.name '
 							.	'ORDER BY art.art_id');
 			$i = 0;
