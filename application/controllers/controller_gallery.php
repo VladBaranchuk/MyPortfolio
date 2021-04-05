@@ -33,10 +33,23 @@
 		}
 
 		public function actionView($id){  // Выпрашивает у модели один
+
+			$artsList = Gallery::getArtsListLimit(7);
+
+			$artsLike = Gallery::getLikesByArts();
+
+			$userLikes = Gallery::getLikesListByArtsFromUser('@mariaolhtz');
 			
 			$artsItem = Gallery::getArtsItemById($id);
 
-			$comments = Comments::getCommentsListById('@mariaolhtz', $id, 'art');
+			$artsComments = Gallery::getСommentsByArts();
+
+			$comments = Comments::getCommentsListById($id, 'art');
+
+			if(!empty($_POST['message'])){
+					$result = Comments::setComment('@mariaolhtz', $_POST['id'], 'art', $_POST['message']);
+		        	exit(json_encode($result, JSON_UNESCAPED_UNICODE));
+			}
 
 			require_once(ROOT . '/application/views/gallery/indexId.php');
 

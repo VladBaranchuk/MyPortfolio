@@ -107,7 +107,6 @@
 			}
 
 			return 'true';
-
 		}
 
 		public static function getLikesListByArtsFromUser($login){

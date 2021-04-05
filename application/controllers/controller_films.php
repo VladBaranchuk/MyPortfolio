@@ -27,10 +27,25 @@
 		}
 
 		public function actionView($id){  // Выпрашивает у модели один
+
+			if(!empty($_POST['message'])){
+					$result = Comments::setComment('@mariaolhtz', $_POST['id'], 'film', $_POST['message']);
+		        	exit(json_encode($result, JSON_UNESCAPED_UNICODE));
+			}
+			if(!empty($_POST['id'])){
+					$result = Films::setUpLikesByFilms($_POST['id'], '@mariaolhtz');
+		        	exit($result);
+			}
 			
 			$filmsItem = Films::getFilmsItemById($id);
 
-			$comments = Comments::getCommentsListById('@bvlad', $id, 'film');
+			$comments = Comments::getCommentsListById($id, 'film');
+
+			$filmsLike = Films::getLikesByFilms();
+
+			$userLikes = Films::getLikesListByFilmsFromUser('@mariaolhtz');
+
+			$filmsComments = Films::getСommentsByFilms();
 
 			require_once(ROOT . '/application/views/films/indexId.php');
 

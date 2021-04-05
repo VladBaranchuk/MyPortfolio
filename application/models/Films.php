@@ -107,6 +107,81 @@
 
 			return $newList;
 		}
+
+		public static Function setUpLikesByFilms($id, $login){
+			
+
+			$db = DB::getConnection();
+			$newList = array();
+
+			$result = $db->query('INSERT INTO likes_film (film_id, login) VALUES (' . $id . ', "' . $login . '")');
+
+
+			if(!$result){
+				$db->query('DELETE FROM likes_film WHERE film_id = ' . $id . ' and login = "' . $login . '"');
+
+				return 'false';
+			}
+
+			return 'true';
+		}
+
+		public static function getLikesByFilms(){
+
+			$db = DB::getConnection();
+			$newList = array();
+
+			$result = $db->query('SELECT film.film_id AS film_id, COUNT(likes_film.film_id) AS likes '
+							.	'FROM film '
+							.	'LEFT JOIN likes_film ON film.film_id = likes_film.film_id '
+							.	'GROUP BY film.name '
+							.	'ORDER BY film.film_id');
+
+			$i = 0;
+			while($row = $result->fetch()) {
+				$newList[$i]['film_id'] = $row['film_id'];
+				$newList[$i]['likes'] = $row['likes'];
+				$i++;
+			}
+
+			return $newList;
+		}
+
+		public static function getLikesListByFilmsFromUser($login){
+
+			$db = DB::getConnection();
+			$newList = array();
+
+			$result = $db->query('SELECT film_id FROM likes_film WHERE login = "' . $login . '"');
+
+			$i = 0;
+			while($row = $result->fetch()) {
+				$newList[$i]['film_id'] = $row['film_id'];
+				$i++;
+			}
+
+			return $newList;
+		}
+
+		public static function getСommentsByFilms(){
+
+			$db = DB::getConnection();
+			$newList = array();
+
+			$result = $db->query('SELECT film.film_id AS film_id, COUNT(film_comments.film_id) AS comments '
+							.	'FROM film '
+							.	'LEFT JOIN film_comments ON film.film_id = film_comments.film_id '
+							.	'GROUP BY film.name '
+							.	'ORDER BY film.film_id');
+			$i = 0;
+			while($row = $result->fetch()) {
+				$newList[$i]['film_id'] = $row['film_id'];
+				$newList[$i]['comments'] = $row['comments'];
+				$i++;
+			}
+
+			return $newList;
+		}
 	}
 
  ?>

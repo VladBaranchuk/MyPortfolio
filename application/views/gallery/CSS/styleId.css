@@ -3,7 +3,6 @@
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	max-width: 1366px;
 	min-width: 600px;
 }
 .root{
@@ -12,16 +11,55 @@
 	flex-wrap: wrap;
 	margin-bottom:62px;
 }
-.back{
-	width:100vw;
+.background{
+	width:100%;
 	height: 100vh;
 	background: #211617;
 	display: flex;
 	flex-direction: row;
 }
-.content{
+.back{
+	position:absolute;
+	right:25px;
+	top:25px;
+}
+.img-container{
 	width: 100%;
 	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.data{
+	width: auto;
+	height: 550px;
+	border: 1px solid #F3EEDB;
+}
+.information{
+	display:flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	height: 50px;
+	color:#F3EEDB;
+	background: #232522;
+}
+.name{
+	margin-left: 20px;
+	font-family: 'Playfair Display';
+	font-size:28px;
+}
+.date{
+	display:flex;
+	flex-direction: row;
+	margin-right:20px;
+	font-family: 'Noto Sans TC', sans-serif;
+	font-size:16px;
+	font-weight: 400;
+}
+.year{
+	margin-left:5px;
 }
 .control{
 	width: 58px;
@@ -31,8 +69,304 @@
 	align-items: center;
 }
 .image{
-	height: 582px;
+	height: 500px;
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
+}
+.footer-information{
+	width: calc(100% - 10px);
+	display: flex;
+	justify-content: space-between;
+	margin: 0px 5px;
+	font-family: Raleway;
+	color: white;
+}
+.outer-space-top{
+	margin-top: 7px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-size: 11px;
+	font-weight: 500;
+	font-feature-settings: 'pnum' on, 'lnum' on;
+}
+.icons-top{
+	display: flex;
+	align-items: center;
+}
+.likes-top{
+	margin-right: 7px;
+}
+.comments-top{
+	margin-right: 9px;
+}
+.share-top{
+	margin-right:7px;
+}
+.stat-top{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 3px;
+	width: 106px;
+}
+#likes-top{
+	width: 21px;
+	text-align: center;
+}
+#comments-top{
+	width: 21px;
+	text-align: center;
+}
+#share-top{
+	width: 21px;
+	text-align: center;
+}
+#eto-bolwanka-ne-trogai{
+	width: 21px;
+}
+.user{
+	margin-top:5px;
+	font-size: 14px;
+}
+.full-image{
+	width:100%;
+}
+.full-image img{
+	width: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+
+
+
+
+
+
+
+.gallery-container{
+	width: 100%;
+	margin:0px 58px;
+	margin-top: 58px;
+
+}
+.art-container{
+	width: 378px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	margin-bottom: 26px;
+}
+.art-container a{
+	text-decoration: none;
+	font-family: Raleway;
+	font-size: 14px;
+	margin-top: 5px;
+	margin-right: 3px;
+	color: #654145;
+}
+#first{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+#second{
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+#third{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+#fourth{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+.space{
+	position: absolute;
+	width: 100%;
+	height: calc(100% - 21px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.space a{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	padding:0px;
+	margin: 0px;
+}
+.inner-space{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	background: #211516;
+	opacity: 0;
+}
+.inner-space svg{
+	margin:10px;
+}
+.outer-space{
+	background: #21151600;
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: Raleway;
+	font-size: 11px;
+	font-weight: 500;
+	color: white;
+	font-feature-settings: 'pnum' on, 'lnum' on;
+	opacity: 0;
+}
+.icons{
+	display: flex;
+	align-items: center;
+}
+.likes{
+	margin-right: 7px;
+}
+.comments{
+	margin-right: 9px;
+}
+.stat{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 3px;
+	width: 79px;
+}
+#likes{
+	width: 21px;
+	text-align: center;
+}
+#comments{
+	width: 21px;
+	text-align: center;
+}
+#share{
+	width: 21px;
+	text-align: center;
+}
+
+
+[data-type="picture"]{
+	width: 378px;
+
+}
+[data-type="sculpture"]{
+	width: 814px;
+}
+
+.more{
+	display: flex;
+	margin:0px auto;
+	margin-bottom: 60px;
+}
+.more a{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align:center;
+	font-family: Raleway;
+	font-size: 18px;
+	font-weight: bold;
+	
+	color:#654145;
+	text-decoration: none;
+}
+.more svg{
+	margin-top: 5px;
+}
+
+
+
+.comments-module{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin-top: 125px;
+	font-family: "Raleway";
+}
+.comments-module span{
+	display: block;
+	font-size: 24px;
+	font-weight: bold;
+}
+.input-comment{
+	display: flex;
+	justify-content: center;
+	margin-top: 40px;
+	padding-bottom:50px;
+	padding-right: 50px;
+	padding-left: 50px;
+	border-bottom: 1px solid #6541454D;
+}
+.input-comment form{
+	display: flex;
+	align-items: flex-end;
+}
+.input-comment textarea{
+	width: 597px;
+	height:150px;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding: 10px;
+	box-sizing: border-box;
+	font-family: "Raleway";
+	font-size: 18px;
+	border:1px solid #654145;
+	color:#654145;
+	resize: none;
+	overflow: auto;
+}
+.input-comment form button{
+	width: 24px;
+	height:24px;
+	border: none;
+	outline: none;
+	margin:0px;
+	padding: 0px;
+}
+.input-comment img{
+	align-self: flex-start;
+}
+.output-comments{
+	margin-top: 50px;
+	display: flex;
+	justify-content: flex-start;
+}
+.comment-ifn-container{
+	width: 597px;
+	display: flex;
+	flex-direction: column;
+	padding-right: 34px;
+	margin-left: 10px;
+	font-family: "Raleway";
+	font-size: 18px;
+	font-feature-settings: 'pnum' on, 'lnum' on;
+}
+.comment{
+	width: 100%;
+	text-align: justify;
+	word-break: break-all;
+}
+.comment-information{
+	height: 50px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
 }

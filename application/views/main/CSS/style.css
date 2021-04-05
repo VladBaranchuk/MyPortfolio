@@ -52,11 +52,6 @@
 	margin:0px 58px;
 
 }
-.gallery-container{
-	width: 100%;
-	margin:0px 58px;
-
-}
 .art-container{
 	width: 378px;
 	display: flex;
@@ -172,39 +167,6 @@
 [data-type="sculpture"]{
 	width: 814px;
 }
-
-
-.footer-menu{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 30px;
-	width:100%;
-	border-top: 1px solid #654145;
-	font-family: Raleway;
-    font-size: 18px;
-    position: sticky;
-    bottom: 0px;
-    background: white;
-    z-index: 1;
-}
-.footer-menu span{
-	margin-left: 10px;
-	margin-right: 10px;
-}
-.more{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	font-family: Raleway;
-	font-size: 18px;
-	font-weight: bold;
-	margin:0px auto;
-}
-.more svg{
-	margin-top: 5px;
-}
-
 
 
 .film-container{

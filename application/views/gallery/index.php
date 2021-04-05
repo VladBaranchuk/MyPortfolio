@@ -187,7 +187,6 @@
         <span>пейзаж</span>
         <span>марина</span>
         <span>исторический</span>
-        <span>бытовой</span>
         <span>авангардизм</span>
         <span>портрет</span>
         <span>пейзаж</span>

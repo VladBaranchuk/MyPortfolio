@@ -1,7 +1,8 @@
 <?php 
 
 	return array(
-		
+
+		'(@[a-z]+)' => 'user/index',
 		'films/([0-9]+)' => 'films/view/$1',
 		'gallery/([0-9]+)' => 'gallery/view/$1',
 		'films' => 'films/index',

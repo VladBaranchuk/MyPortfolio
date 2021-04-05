@@ -9,11 +9,6 @@
 
 		public function actionIndex(){ // Выпрашивает у модели список
 
-			// if(!empty($_POST)){
-
-			// 		$List = Films::getFilmsListLimit(4, $_POST['more']);
-		 //        	exit(json_encode($List, JSON_UNESCAPED_UNICODE));
-			// }
 			if(!empty($_POST['id'])){
 					$result = Gallery::setUpLikesByArts($_POST['id'], '@mariaolhtz');
 		        	exit($result);

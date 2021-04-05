@@ -27,6 +27,11 @@ class Global{
         // document.write(fullDate); // Сегодня: 18 Август 2015, Вторник
         return fullDate;
     }
+
+    static findAncestor = function (el, cls) { // Поиск родительсого элемента
+        while ((el = el.parentElement) && !el.classList.contains(cls));
+        return el;
+    }
 }
 
 export default Global;

@@ -160,7 +160,7 @@ iframe{
 .producer{
 	font-weight: 500;
 }
-.comments{
+.comments-module{
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -168,7 +168,7 @@ iframe{
 	margin-top: 125px;
 	font-family: "Raleway";
 }
-.comments span{
+.comments-module span{
 	display: block;
 	font-size: 24px;
 	font-weight: bold;
@@ -238,3 +238,52 @@ iframe{
 	margin-bottom: 10px;
 }
 
+.outer-space{
+	font-family: Raleway;
+	color:black;
+	margin-right: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-size: 11px;
+	font-weight: 500;
+	font-feature-settings: 'pnum' on, 'lnum' on;
+}
+.icons{
+	display: flex;
+	align-items: center;
+}
+.likes{
+	margin-right: 7px;
+}
+.comments{
+	margin-right: 9px;
+}
+.stat{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 3px;
+	width: 79px;
+}
+#likes{
+	width: 21px;
+	text-align: center;
+}
+#comments{
+	width: 21px;
+	text-align: center;
+}
+#share{
+	width: 21px;
+	text-align: center;
+}
+
+
+[data-type="picture"]{
+	width: 378px;
+
+}
+[data-type="sculpture"]{
+	width: 814px;
+}
