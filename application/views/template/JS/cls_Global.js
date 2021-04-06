@@ -28,7 +28,7 @@ class Global{
         return fullDate;
     }
 
-    static findAncestor = function (el, cls) { // Поиск родительсого элемента
+    static findAncestor = function(el, cls) { // Поиск родительсого элемента
         while ((el = el.parentElement) && !el.classList.contains(cls));
         return el;
     }

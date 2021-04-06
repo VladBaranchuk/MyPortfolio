@@ -148,7 +148,9 @@
                                 </div>                
                             </div>
                             <div class="user">
-                                @ppgrig
+                                <a href="/<?= $artsItem['login']; ?>/">
+                                    <?= $artsItem['login']; ?>
+                                </a>
                             </div>
                         </div>
                     </div> 
@@ -253,7 +255,7 @@
                                 </div> 
                         </div>
                           
-                        <a href="">
+                        <a href="/<?= $artItem['login']; ?>/">
                             <?= $artItem['login']; ?>
                         </a>
                     </div>

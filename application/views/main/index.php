@@ -198,7 +198,7 @@
                         </div> 
                     </div>
                       
-                    <a href="">
+                    <a href="/<?= $artItem['login']; ?>/">
                         <?= $artItem['login']; ?>
                     </a>
                 </div>

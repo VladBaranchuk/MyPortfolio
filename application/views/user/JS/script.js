@@ -1,5 +1,7 @@
 import Global from "../../template/JS/cls_Global.js";
 
+let startPosition = document.querySelector('.items');
+
 let masonry = function(){
 
 	var grid = document.querySelector('.gallery-container');
@@ -173,114 +175,12 @@ function fetchSort(){
 
 	setInterval(() => {
 		masonry();
-		console.log('f');
 	}, 200);
 }
 
 document.querySelector('.more').onclick = () => {
 
 	fetchSort();
-}
-
-let triangle = document.querySelector('.disclaimer svg path');  // items
-let corner = document.querySelector('.corner');
-
-
-let triangOpacity = window.getComputedStyle(triangle).fillOpacity;		// текущее значение прозрачности элемента
-
-document.querySelector('.disclaimer svg').onclick = () => {
-
-	let scrollArts = document.querySelector('.gallery-container').getBoundingClientRect().top + pageYOffset - 120; 	// текущее значение высоты c учетом margin 120px	
-
-	//window scrollTo()
-	Global.animate({
-		draw: (progress) => {
-			//элемент,   свойство,   начальное значение,   конечное значение
-			//item,      property,   initialParam,         finalParam 
-			//поля требуют реализации
-
-			let item = window;
-            // let property = 'transform';
-            let initialParam = pageYOffset;
-            let finalParam = scrollArts;
-
-            let frame = 0;
-
-            let func = (step) => {
-                frame += initialParam - progress * step; 
-                item.scrollTo(0, frame);
-            }
-
-            func(initialParam - finalParam);
-        
-		}, 
-		duration: 500,  				//duration
-		timing: (timeFraction) => {	//timing function
-		 	return timeFraction;
-		}
-	});
-}
-
-document.querySelector('.disclaimer svg').onmouseenter = () => {
-
-	// triangle fillOpacity
-	Global.animate({
-		draw: (progress) => {
-			//элемент,   свойство,   начальное значение,   конечное значение
-			//item,      property,   initialParam,         finalParam 
-			//поля требуют реализации
-
-			let item = triangle;
-            let property = 'fillOpacity';
-            let initialParam = triangOpacity;
-            let finalParam = 1;
-
-            let frame = 0;
-
-            let func = (step) => {
-                frame += initialParam - progress * step; 
-                item.style[property] = frame;
-            }
-
-            func(initialParam - finalParam);
-        
-		}, 
-		duration: 100,  				//duration
-		timing: (timeFraction) => {	//timing function
-		 	return timeFraction;
-		}
-	});
-}
-
-document.querySelector('.disclaimer svg').onmouseleave = () => {
-
-	// triangle fillOpacity
-	Global.animate({
-		draw: (progress) => {
-			//элемент,   свойство,   начальное значение,   конечное значение
-			//item,      property,   initialParam,         finalParam 
-			//поля требуют реализации
-
-			let item = triangle;
-            let property = 'fillOpacity';
-            let initialParam = 1;
-            let finalParam = triangOpacity;
-
-            let frame = 0;
-
-            let func = (step) => {
-                frame += initialParam - progress * step; 
-                item.style[property] = frame;
-            }
-
-            func(initialParam - finalParam);
-        
-		}, 
-		duration: 100,  				//duration
-		timing: (timeFraction) => {	//timing function
-		 	return timeFraction;
-		}
-	});
 }
 
 document.querySelector('.gallery-container').addEventListener("mouseover", (e) => {
@@ -420,8 +320,6 @@ document.querySelector('.gallery-container').addEventListener("mouseover", (e) =
 			sendRequest('POST', url, body)
 			  .then((data)=>{
 
-			  	console.log(data);
-
 			  	let likePath = like.querySelector('path');
 			  	let likeValue = outerSpace.querySelector('#likes');
 			  	let likeValueGet = outerSpace.querySelector('#likes').textContent;
@@ -439,8 +337,6 @@ document.querySelector('.gallery-container').addEventListener("mouseover", (e) =
 				            let property = 'fillOpacity';
 				            let initialParam = window.getComputedStyle(likePath).fillOpacity;
 				            let finalParam = 1;
-
-				            console.log(initialParam);
 
 				            let frame = 0;
 
@@ -474,8 +370,6 @@ document.querySelector('.gallery-container').addEventListener("mouseover", (e) =
 				            let property = 'fillOpacity';
 				            let initialParam = window.getComputedStyle(likePath).fillOpacity;
 				            let finalParam = 0;
-
-				            console.log(initialParam);
 
 				            let frame = 0;
 
@@ -662,3 +556,231 @@ document.querySelector('.gallery-container').addEventListener("mouseout", (e) =>
   		}
 	}
 });
+
+document.querySelector('#right').onclick = () => {
+
+	let scroll = startPosition.scrollLeft;
+
+	if(scroll == startPosition.scrollLeftMax){
+
+		Global.animate({
+			draw: (progress) => {
+				//элемент,   свойство,   начальное значение,   конечное значение
+				//item,      property,   initialParam,         finalParam 
+				//поля требуют реализации
+
+				let item = startPosition;
+	            let property = 'scrollLeft';
+	            let initialParam = scroll;
+	            let finalParam = 0;
+
+	            let frame = 0;
+
+	            let func = (step) => {
+	                frame += initialParam - progress * step;
+	                item[property] = frame;
+	            }
+
+	            func(initialParam - finalParam);
+	        
+			}, 
+			duration: 300,  				//duration
+			timing: (timeFraction) => {	//timing function
+			 	return Math.pow(timeFraction, 2);
+			}
+		});
+	}
+	else{
+		Global.animate({
+		draw: (progress) => {
+			//элемент,   свойство,   начальное значение,   конечное значение
+			//item,      property,   initialParam,         finalParam 
+			//поля требуют реализации
+
+			let item = startPosition;
+            let property = 'scrollLeft';
+            let initialParam = scroll;
+            let finalParam = scroll + 315;
+
+            let frame = 0;
+
+            let func = (step) => {
+                frame += initialParam - progress * step;
+                item[property] = frame;
+            }
+
+            func(initialParam - finalParam);
+        
+		}, 
+		duration: 300,  				//duration
+		timing: (timeFraction) => {	//timing function
+		 	return Math.pow(timeFraction, 2);
+		}
+	});
+	}	
+}
+
+document.querySelector('#left').onclick = () => {
+
+	let scroll = startPosition.scrollLeft;
+
+	Global.animate({
+		draw: (progress) => {
+			//элемент,   свойство,   начальное значение,   конечное значение
+			//item,      property,   initialParam,         finalParam 
+			//поля требуют реализации
+
+			let item = startPosition;
+            let property = 'scrollLeft';
+            let initialParam = scroll;
+            let finalParam = scroll - 315;
+
+            let frame = 0;
+
+            let func = (step) => {
+                frame += initialParam - progress * step; 
+                item[property] = frame;
+            }
+
+            func(initialParam - finalParam);
+        
+		}, 
+		duration: 300,  				//duration
+		timing: (timeFraction) => {	//timing function
+		 	return Math.pow(timeFraction, 2);
+		}
+	});
+}
+
+document.querySelector('.slider').onmouseover = (e) => {
+
+	if(e.target.className == 'control'){
+
+
+		let control = e.target;
+
+
+
+		control.onmouseenter = (e) =>{
+
+			let triangle = e.target.querySelector('path');  // items
+			let triangOpacity = window.getComputedStyle(triangle).fillOpacity;
+
+			// triangle fillOpacity
+			Global.animate({
+				draw: (progress) => {
+					//элемент,   свойство,   начальное значение,   конечное значение
+					//item,      property,   initialParam,         finalParam 
+					//поля требуют реализации
+
+					let item = triangle;
+		            let property = 'fillOpacity';
+		            let initialParam = triangOpacity;
+		            let finalParam = 1;
+
+		            let frame = 0;
+
+		            let func = (step) => {
+		                frame += initialParam - progress * step; 
+		                item.style[property] = frame;
+		            }
+
+		            func(initialParam - finalParam);
+		        
+				}, 
+				duration: 100,  				//duration
+				timing: (timeFraction) => {	//timing function
+				 	return timeFraction;
+				}
+			});
+		}
+	}
+}
+
+document.querySelector('.slider').onmouseout = (e) => {
+
+	if(e.target.className == 'control'){
+
+		let control = e.target;
+
+		control.onmouseleave = (e) =>{
+
+			let triangle = e.target.querySelector('path');  // items
+			let triangOpacity = window.getComputedStyle(triangle).fillOpacity;
+
+			// triangle fillOpacity
+			Global.animate({
+				draw: (progress) => {
+					//элемент,   свойство,   начальное значение,   конечное значение
+					//item,      property,   initialParam,         finalParam 
+					//поля требуют реализации
+
+					let item = triangle;
+		            let property = 'fillOpacity';
+		            let initialParam = 1;
+		            let finalParam = 0;
+
+		            let frame = 0;
+
+		            let func = (step) => {
+		                frame += initialParam - progress * step; 
+		                item.style[property] = frame;
+		            }
+
+		            func(initialParam - finalParam);
+		        
+				}, 
+				duration: 100,  				//duration
+				timing: (timeFraction) => {	//timing function
+				 	return timeFraction;
+				}
+			});
+		}
+	}
+}
+
+document.querySelector('.submit').onclick = (e) =>{
+	e.preventDefault();
+
+	let login = document.querySelector('.about').id
+
+	const url = '/' + login + '/';
+
+	let form = document.querySelector('form').elements;
+	let surname = form['surname'].value;
+	let name = form['name'].value;
+	let phone = form['phone'].value;
+	let message = form['message'].value;
+
+	const body = new FormData();
+	body.set('surname', surname);
+	body.set('name', name);
+	body.set('phone', phone);
+	body.set('message', message);
+
+	
+	function sendRequest(method, url, body = null) {
+	  const headers = {
+	  }
+
+	  return fetch(url, {
+	    method: method,
+	    body: body,
+	    headers: headers
+	  }).then(response => {
+	    if (response.ok) {
+	      return response.text();
+	    }
+
+	    return response.text().then(error => {
+	      const e = new Error('Что-то пошло не так')
+	      e.data = error
+	      throw e
+	    })
+	  })
+	}
+
+	sendRequest('POST', url, body)
+	  .then()
+	  .catch(err => console.log(err))
+}

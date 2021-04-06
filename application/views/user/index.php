@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,7 @@
     <link href="/application/views/modules/footer/footer.css" rel="stylesheet" type="text/css" >
     <link href="/application/views/modules/lift/lift.css" rel="stylesheet" type="text/css" >
     <!-- стиль -->
-    <link href="/application/views/gallery/CSS/style.css" rel="stylesheet" type="text/css" >
+    <link href="/application/views/user/CSS/style.css" rel="stylesheet" type="text/css" >
 
     <!-- SimpleBar script-->
     <!-- <script defer src="/application/views/template/simplebar/simplebar.js"></script> -->
@@ -24,7 +25,7 @@
     <script defer type="module" src="/application/views/modules/footer/script.js"></script>
     <script defer type="module" src="/application/views/modules/lift/script.js"></script>
     <!-- скрипт --> 
-    <script defer type="module" src="/application/views/gallery/JS/script.js"></script>
+    <script defer type="module" src="/application/views/user/JS/script.js"></script>
     <noscript>
       <style>
         /**
@@ -42,41 +43,45 @@
         <div class="root">
             <!-- Здесь начинается страница -->
 
-            <div class="disclaimer">
-                <p>Ознакомьтесь с произведениями неизвестных художников-любителей, чтобы дать развитие новым талантам. На данный момент наша коллекция насчитывает более 190 000 произведений и регулярно пополняется. На сайте представлены произведения разных направлений, в том числе и трехмерных композиций которые составляют виртуальную галерею.
-                </p>
-                <svg width="36" height="18" viewBox="0 0 36 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M34.1455 0.499997L18 17.2789L1.85451 0.499999L34.1455 0.499997Z" fill-opacity="0" fill="#654145" stroke="#654145"/>
-                </svg>
-            </div>
-            <div class="sorting">
-                    <div class="year-sorting sort">
-                        ГОД
-                        <svg width="18" height="9" viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.4852 8.5L9 0.721111L1.51476 8.5L16.4852 8.5Z" fill="#654145" stroke="#654145"/>
-                        </svg>
-                    </div>
-                    <div class="month-sorting sort">
-                        МЕСЯЦ
-                        <svg width="18" height="9" viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.4852 8.5L9 0.721111L1.51476 8.5L16.4852 8.5Z" fill="#654145" stroke="#654145"/>
-                        </svg>
-                    </div>
-                    <div class="art-sorting sort">
-                        КАРТИНЫ
-                        <svg width="18" height="9" viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.4852 8.5L9 0.721111L1.51476 8.5L16.4852 8.5Z" fill="#654145" stroke="#654145"/>
-                        </svg>
-                    </div>
+            <div class="slider">
+                <div class="control" id="left">
+                    <svg width="14" height="26" viewBox="0 0 14 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.5 24.8534L0.734806 13L13.5 1.14661L13.5 24.8534Z" fill="#654145" fill-opacity="0" stroke="#654145"/>
+                    </svg>
                 </div>
-                <div class="gallery-container">
+                <div class="items">
+
+                    <?php foreach ($artsList as $artItem): ?>
+
+                    <div class="item" style="background-image: url('/application/views/template/images/arts/<?php echo $artItem['art_id']; ?>.jpg');">
+                        <div class="label">
+                            <span class="name"><?php echo $artItem['name']; ?></span>
+                            <span class="year"><?php echo $artItem['year']; ?></span>
+                        </div>
+                        <div class="expansion-background">
+                        </div>  
+                    </div>
+
+                   <?php endforeach; ?> 
+
+                </div>
+                <div class="control" id="right">
+                    <svg width="14" height="26" viewBox="0 0 14 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.5 24.8534L13.2652 13L0.5 1.14661L0.5 24.8534Z" fill="#654145" fill-opacity="0" stroke="#654145"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="section-name">
+                ПОРТФОЛИО
+            </div>
+            <div class="gallery-container">
 
                     <?php foreach ($artsList as $artItem): ?>
 
                     <div class="art-container" id="<?php echo $artItem['art_id']; ?>">
                         <img src="/application/views/template/images/arts/<?php echo $artItem['art_id']; ?>.jpg" data-type="picture" alt="">
                         <div class="space">
-                            <a href="<?php echo $artItem['art_id']; ?>">
+                            <a href="/gallery/<?php echo $artItem['art_id']; ?>">
                                 <div class="inner-space">
                                     <svg id="first" class="corner" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M0.5 12.5V0.5H12.5" stroke="#FFFFFF" />
@@ -163,30 +168,51 @@
                     </div>
 
                     <?php endforeach; ?>
-
+            </div>
+            <div class="more">
+                БОЛЬШЕ
+                <svg width="26" height="14" viewBox="0 0 26 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.18463 1L13 13.2789L24.8154 1L1.18463 1Z" fill="#654145" stroke="#654145"/>
+                </svg>
+            </div> 
+            <div  class="about" id="<?php echo $artItem['login']; ?>">
+                <span>О СЕБЕ</span>
+                <div class="imtext">
+                    <img src="/application/views/template/images/users/<?php echo $artItem['login']; ?>full.jpg" alt=""/>
+                    <div>
+                        <span>Петро Петр Григорьевич</span>
+                        <p>Идейные соображения высшего порядка,
+                            а также консультация с широким активом
+                            играет важную роль в формировании дальнейших
+                            направлений развития. Повседневная практика
+                            показывает, что сложившаяся структура организации
+                            позволяет выполнять важные задания
+                            по разработке модели развития. Не следует,
+                            однако забывать, что укрепление и развитие
+                            структуры способствует подготовки и реализации
+                            новых предложений. Разнообразный и богатый
+                            опыт сложившаяся структура организации
+                            позволяет выполнять важные задания по разработке
+                            новых предложений. Таким образом новая модель
+                            организационной деятельности в значительной
+                            степени обуславливает создание систем массового участия.
+                        </p>
+                    </div>
                 </div>
-        <div class="more">
-            БОЛЬШЕ
-            <svg width="26" height="14" viewBox="0 0 26 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1.18463 1L13 13.2789L24.8154 1L1.18463 1Z" fill="#654145" stroke="#654145"/>
-            </svg>
-        </div> 
+            </div>
+            <div class="feedback" id="feedback">
+                <span>ОБРАТНАЯ СВЯЗЬ</span>
+                <form>
+                    <input name="surname" type="text" placeholder="фамилия..."/>
+                    <input name="name" type="text" placeholder="имя..."/>
+                    <input name="phone" type="phone" placeholder="+375(__) ___-__-__ "/>
+                    <input name="message" type="text" placeholder="сообщение..."/>
+                    <input type="submit" class="submit" value="отправить"/>
+                </form>
+            </div>
         </div>
         <?php require_once(ROOT . '/application/views/modules/lift/lift.php') ?>
     </div>  
     <?php require_once(ROOT . '/application/views/modules/footer/footer.php') ?>
-    <div class="footer-menu">
-        <span>портрет</span>
-        <span>пейзаж</span>
-        <span>марина</span>
-        <span>исторический</span>
-        <span>авангардизм</span>
-        <span>портрет</span>
-        <span>пейзаж</span>
-        <span>марина</span>
-        <span>исторический</span>
-        <span>бытовой</span>
-        <span>авангардизм</span>
-    </div>
 </body>
 </html>

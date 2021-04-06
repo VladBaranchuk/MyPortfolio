@@ -130,6 +130,10 @@
 	margin-top:5px;
 	font-size: 14px;
 }
+.user a{
+	color:white;
+	text-decoration: none;
+}
 .full-image{
 	width:100%;
 }
