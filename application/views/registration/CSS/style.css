@@ -1,24 +1,24 @@
 body{
-	width: 100vw;
-	height: 100vh;
-	background: url('/application/views/template/images/registration.jpg') no-repeat center;
-	background-size: cover;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: url('/application/views/template/images/registration.jpg') no-repeat center;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 .back{
-	width: 286px;
-	display: flex;
-	justify-content: flex-end;
-	align-items: flex-start;
-	height: 100vh;
+    width: 286px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: 100vh;
 }
 .reg{
-	display: flex;
-	align-items: flex-end;
-	flex-direction: column;
-	font-family: Raleway;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    font-family: Raleway;
     font-size: 24px;
     font-weight: bold;
     width: 354px;
@@ -26,24 +26,24 @@ body{
     padding-top: 21vh;
 }
 .reg div{
-	margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 .back svg{
-	margin: 26px;
+    margin: 26px;
 }
 .login, .signup{
-	height: 79vh;
-	padding-top: 21vh;
+    height: 79vh;
+    padding-top: 21vh;
 }
 .signup{
-	opacity: 0;
-	display: none;
+    opacity: 0;
+    display: none;
 }
 #signup{
-	opacity: 0.6;
+    opacity: 0.6;
 }
 form{
-    width: 610px;
+    width: 610px !important;
     display: flex;
     justify-content: space-between;
     flex-shrink: 0;
@@ -97,7 +97,7 @@ input{
     padding: 0px;
 }
 .signup [name="login"]{
-	width: 100%;
+    width: 100%;
     height: 60px;
     color:#654145;
     margin-bottom: 10px;

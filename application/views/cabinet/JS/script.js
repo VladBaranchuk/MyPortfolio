@@ -11,8 +11,6 @@ let masonry = function(){
 	});
 }
 
-window.onload = masonry;
-
 function fetchSort(){
 
 	const url = '/gallery/';
@@ -95,7 +93,7 @@ function fetchSort(){
 
 			  		html = "<img src='/application/views/template/images/arts/" + data[0][i].art_id + ".jpg' data-type='picture' alt=''>"
 		                    +"<div class='space'>"
-		                        +"<a href='" + data[0][i].art_id + "'>"
+		                        +"<a href='/gallery/" + data[0][i].art_id + "'>"
 		                            +"<div class='inner-space' style='background-color:" + data[0][i].low_color + ";'>"
 		                                +"<svg id='first' class='corner' width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'>"
 		                                    +"<path d='M0.5 12.5V0.5H12.5' stroke='" + data[0][i].high_color + "' />"
@@ -131,7 +129,7 @@ function fetchSort(){
 		                            +'</div>'                
 		                        +'</div>' 
 		                    +'</div>' 
-		                    +'<a href="/user/' + data[0][i].login +'/">'
+		                    +'<a href="/user/' + data[0][i].login +'">'
 		                        + data[0][i].login
 		                    +'</a>'
 		  		
@@ -173,115 +171,15 @@ function fetchSort(){
 
 	setInterval(() => {
 		masonry();
-		console.log('f');
 	}, 200);
 }
 
-document.querySelector('.more').onclick = () => {
-
-	fetchSort();
+function findAncestor (el, cls) { // Поиск родительсого элемента
+    while ((el = el.parentElement) && !el.classList.contains(cls));
+    return el;
 }
 
-let triangle = document.querySelector('.disclaimer svg path');  // items
-let corner = document.querySelector('.corner');
-
-
-let triangOpacity = window.getComputedStyle(triangle).fillOpacity;		// текущее значение прозрачности элемента
-
-document.querySelector('.disclaimer svg').onclick = () => {
-
-	let scrollArts = document.querySelector('.gallery-container').getBoundingClientRect().top + pageYOffset - 120; 	// текущее значение высоты c учетом margin 120px	
-
-	//window scrollTo()
-	Global.animate({
-		draw: (progress) => {
-			//элемент,   свойство,   начальное значение,   конечное значение
-			//item,      property,   initialParam,         finalParam 
-			//поля требуют реализации
-
-			let item = window;
-            // let property = 'transform';
-            let initialParam = pageYOffset;
-            let finalParam = scrollArts;
-
-            let frame = 0;
-
-            let func = (step) => {
-                frame += initialParam - progress * step; 
-                item.scrollTo(0, frame);
-            }
-
-            func(initialParam - finalParam);
-        
-		}, 
-		duration: 500,  				//duration
-		timing: (timeFraction) => {	//timing function
-		 	return timeFraction;
-		}
-	});
-}
-
-document.querySelector('.disclaimer svg').onmouseenter = () => {
-
-	// triangle fillOpacity
-	Global.animate({
-		draw: (progress) => {
-			//элемент,   свойство,   начальное значение,   конечное значение
-			//item,      property,   initialParam,         finalParam 
-			//поля требуют реализации
-
-			let item = triangle;
-            let property = 'fillOpacity';
-            let initialParam = triangOpacity;
-            let finalParam = 1;
-
-            let frame = 0;
-
-            let func = (step) => {
-                frame += initialParam - progress * step; 
-                item.style[property] = frame;
-            }
-
-            func(initialParam - finalParam);
-        
-		}, 
-		duration: 100,  				//duration
-		timing: (timeFraction) => {	//timing function
-		 	return timeFraction;
-		}
-	});
-}
-
-document.querySelector('.disclaimer svg').onmouseleave = () => {
-
-	// triangle fillOpacity
-	Global.animate({
-		draw: (progress) => {
-			//элемент,   свойство,   начальное значение,   конечное значение
-			//item,      property,   initialParam,         finalParam 
-			//поля требуют реализации
-
-			let item = triangle;
-            let property = 'fillOpacity';
-            let initialParam = 1;
-            let finalParam = triangOpacity;
-
-            let frame = 0;
-
-            let func = (step) => {
-                frame += initialParam - progress * step; 
-                item.style[property] = frame;
-            }
-
-            func(initialParam - finalParam);
-        
-		}, 
-		duration: 100,  				//duration
-		timing: (timeFraction) => {	//timing function
-		 	return timeFraction;
-		}
-	});
-}
+window.onload = masonry;
 
 document.querySelector('.gallery-container').addEventListener("mouseover", (e) => {
 
@@ -387,7 +285,7 @@ document.querySelector('.gallery-container').addEventListener("mouseover", (e) =
 	if(e.target.className == 'outer-space'){
 		let outerSpace = e.target;
 		let like = outerSpace.querySelector('.likes');
-		let id = Global.findAncestor(like, 'art-container').id;
+		let id = findAncestor(like, 'art-container').id;
 
 		like.onclick = (e) =>{
 			const url = '/gallery/';
@@ -662,3 +560,8 @@ document.querySelector('.gallery-container').addEventListener("mouseout", (e) =>
   		}
 	}
 });
+
+document.querySelector('.more').onclick = () => {
+
+	fetchSort();
+}

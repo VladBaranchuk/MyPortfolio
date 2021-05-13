@@ -28,10 +28,10 @@
         <div id="signup" >ВХОД</div>
     </div>
     <div class="login">
-        <form action="index.php">
+        <form action="/" method="post" name="signup">
             <input name="name" type="text" placeholder="имя..."/>
             <input name="surname" type="text" placeholder="фамилия..."/>
-            <input name="login" type="text" placeholder="логин..."/>
+            <input name="login" type="text" placeholder="@логин..."/>
             <input name="middlename" type="text" placeholder="отчество..."/>
             <input name="email" type="text" placeholder="email..."/>
             <input name="password" type="password" placeholder="пароль..."/>
@@ -41,8 +41,8 @@
         </form>
     </div>
     <div class="signup">
-        <form action="index.php">
-            <input name="login" type="text" placeholder="логин..."/>
+        <form action="/" method="post" name="login">
+            <input name="login" type="text" placeholder="@логин..."/>
             <input name="password" type="password" placeholder="пароль..."/>
             <input name="confirmPassword" type="password" placeholder="повторите пароль..."/>
             <input type="reset" value="сбросить"/>

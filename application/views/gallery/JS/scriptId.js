@@ -680,7 +680,9 @@ document.querySelector('.submit').onclick = (e) => {
                 	+	'<div class="comment-ifn-container">'
                     	+	'<div class="comment-information">'
                         	+	'<div>'
-                            	+	data['login']
+                        		+ 	'<a href="/user/' + data['login'] + '">'
+                            		+	data['login']
+                            	+	'</a>'
                         	+	'</div>'
                         	+	'<div style="color: #65414580;">'
                    				+	data['date']

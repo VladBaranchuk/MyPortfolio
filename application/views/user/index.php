@@ -53,14 +53,16 @@
 
                     <?php foreach ($artsList as $artItem): ?>
 
-                    <div class="item" style="background-image: url('/application/views/template/images/arts/<?php echo $artItem['art_id']; ?>.jpg');">
-                        <div class="label">
-                            <span class="name"><?php echo $artItem['name']; ?></span>
-                            <span class="year"><?php echo $artItem['year']; ?></span>
+                    <a href="/gallery/<?php echo $artItem['art_id']; ?>">
+                        <div class="item" style="background-image: url('/application/views/template/images/arts/<?php echo $artItem['art_id']; ?>.jpg');">
+                            <div class="label" style="background-color:<?php echo $artItem['middle_color'];?>;">
+                                <span class="name" style="color:<?php echo $artItem['high_color'];?>;"><?php echo $artItem['name']; ?></span>
+                                <span class="year" style="color:<?php echo $artItem['high_color'];?>;"><?php echo $artItem['year']; ?></span>
+                            </div>
+                            <div class="expansion-background" style="background-color:<?php echo $artItem['low_color'] . 'cc' ?>;">
+                            </div>  
                         </div>
-                        <div class="expansion-background">
-                        </div>  
-                    </div>
+                    </a> 
 
                    <?php endforeach; ?> 
 
@@ -82,21 +84,21 @@
                         <img src="/application/views/template/images/arts/<?php echo $artItem['art_id']; ?>.jpg" data-type="picture" alt="">
                         <div class="space">
                             <a href="/gallery/<?php echo $artItem['art_id']; ?>">
-                                <div class="inner-space">
+                                <div class="inner-space" style="background-color:<?php echo $artItem['low_color'];?>;">
                                     <svg id="first" class="corner" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M0.5 12.5V0.5H12.5" stroke="#FFFFFF" />
+                                        <path d="M0.5 12.5V0.5H12.5" stroke="<?php echo $artItem['high_color'];?>" />
                                     </svg>
                                     <svg id="second" class="corner" width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M0.500024 1.47556L12.5 1.5L12.4756 13.5" stroke="#FFFFFF"/>
+                                        <path d="M0.500024 1.47556L12.5 1.5L12.4756 13.5" stroke="<?php echo $artItem['high_color'];?>"/>
                                     </svg>
                                     <svg id="third" class="corner" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12.5244 0.499048L12.5 12.499L0.500025 12.4746" stroke="#FFFFFF" />
+                                        <path d="M12.5244 0.499048L12.5 12.499L0.500025 12.4746" stroke="<?php echo $artItem['high_color'];?>" />
                                     </svg>
                                     <svg id="fourth" class="corner" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12.5 12.5L0.5 12.5L0.499999 0.5" stroke="#FFFFFF" />
+                                        <path d="M12.5 12.5L0.5 12.5L0.499999 0.5" stroke="<?php echo $artItem['high_color'];?>" />
                                     </svg>
                                 </div>
-                            </a><div class="outer-space">
+                            </a><div class="outer-space" style="background-color:<?php echo $artItem['low_color'] . '00';?>;">
 
                                 <div class="icons">
                                     <svg class="likes" width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -115,26 +117,26 @@
 
                                     <?php if($flag == 1):?>
 
-                                        <path d="M12.2 0.5L9.5 3.32353L6.8 0.5H3.2L0.5 3.32353V7.08824L9.5 16.5L18.5 7.08824V3.32353L15.8 0.5H12.2Z" stroke="#FFFFFF" fill-opacity="1" fill="#FFFFFF"/>
+                                        <path d="M12.2 0.5L9.5 3.32353L6.8 0.5H3.2L0.5 3.32353V7.08824L9.5 16.5L18.5 7.08824V3.32353L15.8 0.5H12.2Z" stroke="<?php echo $artItem['high_color'];?>" fill-opacity="1" fill="<?php echo $artItem['high_color'];?>"/>
 
                                     <?php else:?>
 
-                                            <path d="M12.2 0.5L9.5 3.32353L6.8 0.5H3.2L0.5 3.32353V7.08824L9.5 16.5L18.5 7.08824V3.32353L15.8 0.5H12.2Z" stroke="#FFFFFF" fill-opacity="0" fill="#FFFFFF"/>
+                                            <path d="M12.2 0.5L9.5 3.32353L6.8 0.5H3.2L0.5 3.32353V7.08824L9.5 16.5L18.5 7.08824V3.32353L15.8 0.5H12.2Z" stroke="<?php echo $artItem['high_color'];?>" fill-opacity="0" fill="<?php echo $artItem['high_color'];?>"/>
 
                                     <?php endif; ?>
 
 
                                     </svg>
                                     <svg class="comments" width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="0.5" y="0.5" width="20" height="14" stroke="#FFFFFF"/>
-                                        <path d="M0.477295 0.46875L10.5 7.5L20.5227 0.46875" stroke="#FFFFFF"/>
+                                        <rect x="0.5" y="0.5" width="20" height="14" stroke="<?php echo $artItem['high_color'];?>"/>
+                                        <path d="M0.477295 0.46875L10.5 7.5L20.5227 0.46875" stroke="<?php echo $artItem['high_color'];?>"/>
                                     </svg>
                                     <svg class="share" width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M0.5 5.5V16.5H10H19.5V5.5" stroke="#FFFFFF"/>
-                                        <path d="M10.3536 0.146446C10.1583 -0.0488157 9.84171 -0.0488157 9.64645 0.146446L6.46447 3.32843C6.2692 3.52369 6.2692 3.84027 6.46447 4.03553C6.65973 4.2308 6.97631 4.2308 7.17157 4.03553L10 1.20711L12.8284 4.03553C13.0237 4.2308 13.3403 4.2308 13.5355 4.03553C13.7308 3.84027 13.7308 3.52369 13.5355 3.32843L10.3536 0.146446ZM10.5 10.5L10.5 0.5L9.5 0.5L9.5 10.5L10.5 10.5Z" fill="#FFFFFF"/>
+                                        <path d="M0.5 5.5V16.5H10H19.5V5.5" stroke="<?php echo $artItem['high_color'];?>"/>
+                                        <path d="M10.3536 0.146446C10.1583 -0.0488157 9.84171 -0.0488157 9.64645 0.146446L6.46447 3.32843C6.2692 3.52369 6.2692 3.84027 6.46447 4.03553C6.65973 4.2308 6.97631 4.2308 7.17157 4.03553L10 1.20711L12.8284 4.03553C13.0237 4.2308 13.3403 4.2308 13.5355 4.03553C13.7308 3.84027 13.7308 3.52369 13.5355 3.32843L10.3536 0.146446ZM10.5 10.5L10.5 0.5L9.5 0.5L9.5 10.5L10.5 10.5Z" fill="<?php echo $artItem['high_color'];?>"/>
                                     </svg>
                                 </div>
-                                <div class="stat">
+                                <div class="stat" style="color:<?php echo $artItem['high_color'];?>;">
 
                                 <?php foreach ($artsLike as $artLike): ?>
 
@@ -162,7 +164,7 @@
                             </div> 
                         </div>
                           
-                        <a href="/<?= $artItem['login']; ?>/">
+                        <a href="/user/<?= $artItem['login']; ?>/">
                             <?= $artItem['login']; ?>
                         </a>
                     </div>

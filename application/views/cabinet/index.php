@@ -11,7 +11,7 @@
     <link href="/application/views/modules/footer/footer.css" rel="stylesheet" type="text/css" >
     <link href="/application/views/modules/lift/lift.css" rel="stylesheet" type="text/css" >
     <!-- стиль -->
-    <link href="/application/views/main/CSS/style.css" rel="stylesheet" type="text/css" >
+    <link href="/application/views/cabinet/CSS/style.css" rel="stylesheet" type="text/css" >
 
     <!-- SimpleBar script-->
     <!-- <script defer src="/application/views/template/simplebar/simplebar.js"></script> -->
@@ -24,7 +24,7 @@
     <script defer type="module" src="/application/views/modules/footer/script.js"></script>
     <script defer type="module" src="/application/views/modules/lift/script.js"></script>
     <!-- скрипт --> 
-    <script defer type="module" src="/application/views/main/JS/script.js"></script>
+    <script defer type="module" src="/application/views/cabinet/JS/script.js"></script>
     <noscript>
       <style>
         /**
@@ -41,82 +41,70 @@
     <div class="body">
         <div class="root">
             <!-- Здесь начинается страница -->
-
-            <div class="disclaimer">
-                <p>Проект создан с целью дать возможность свободным пользователям выкладывать собственные, качественные картины и скульптуры. Сайт позиционирует себя как онлайн-галерея, а значит все представленные арт-объекты принадлежат пользователям данного ресурса и нигде не представлены в одном месте.
-                </p>
-            </div>
-            <div class="main">
-                <div class="section-name">
-                    КИНО
-                </div>
-                <div class="film-container">
-
-
-                    
-
-                    <?php foreach ($filmsList as $filmItem): ?>
-
-                        <div class="film" style="background-image: url(<?php echo '/application/views/template/images/films/' . $filmItem['film_id'] . '.jpg' ?>);">
-                            <div class="info">
-                                <div class="name">
-                                    <a href="/films/<?php echo $filmItem['film_id']; ?>" >
-                                        <?php echo $filmItem['name']; ?>
-                                    </a>
+ 
+            <div  class="about">
+                <div class="imtext">
+                    <img src="/application/views/template/images/users/<?php echo $_SESSION['login']; ?>full.jpg" alt=""/>
+                    <div>
+                        <div class="data-header" style="margin: 0px;">
+                            <div class="dataname">
+                                <div class="FIO-container">
+                                    <span class="FIO" style="font-size: 30px;"><?php echo $_SESSION["name"]; ?></span>
+                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="40" height="40" fill="transparent"/>
+                                        <path d="M11.5 33L13.1452 28.0645M11.5 33L16.4355 31.3548M11.5 33H27.4032M13.1452 28.0645L16.4355 31.3548M13.1452 28.0645L25.2097 16L28.5 19.2903L16.4355 31.3548" stroke="#654145"/>
+                                    </svg>
+                                </div>    
+                                <span class="login"><?php echo $_SESSION["login"]; ?></span>
+                            </div>
+                            <div class="works" style="margin-bottom: 0px;">
+                                <div class="w">
+                                    <div class="w-1">картины:</div>
+                                    <div class="w-2"><?php echo $_SESSION["pictures"]; ?></div>
                                 </div>
-                                <div class="price-date-status">
-                                    <div class="price">
-                                        <?php echo $filmItem['price'] . ' BYN'; ?>
-                                    </div>
-                                    <div class="date-status">
-                                        <div>
-                                            <?php 
-                                            echo TimeHelper::create($filmItem['date'] . ' 00:00:00')->longDate();
-                                            ?>
-                                        </div>
-                                        <div>
-                                            <?php echo $filmItem['status']; ?>
-                                        </div>
-                                    </div>
+                                <div class="w">
+                                    <div class="w-1">выставки:</div>
+                                    <div class="w-2"></div>
+                                </div>
+                                <div class="w" style="margin-bottom: 0px;">
+                                    <div class="w-1">скульптуры:</div>
+                                    <div class="w-2"><?php echo $_SESSION["sculptures"]; ?></div>
                                 </div>
                             </div>
                         </div>
-
-                    <?php endforeach; ?>
-
-
-
+                        <div class="text-redactor">
+                            <svg width="560" height="40" viewBox="0 0 560 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 24.5H522" stroke="#654145" stroke-opacity="0.3"/>
+                                <rect x="520" width="40" height="40" fill="white"/>
+                                <path d="M531 33L532.645 28.0645M531 33L535.935 31.3548M531 33H546.903M532.645 28.0645L535.935 31.3548M532.645 28.0645L544.71 16L548 19.2903L535.935 31.3548" stroke="#654145"/>
+                            </svg>
+                        </div>
+                        <p>Идейные соображения высшего порядка,
+                            а также консультация с широким активом
+                            играет важную роль в формировании дальнейших
+                            направлений развития. Повседневная практика
+                            показывает, что сложившаяся структура организации
+                            позволяет выполнять важные задания
+                            по разработке модели развития. Не следует,
+                            однако забывать, что укрепление и развитие
+                            структуры способствует подготовки и реализации
+                            новых предложений. Разнообразный и богатый
+                            опыт сложившаяся структура организации
+                            позволяет выполнять важные задания по разработке
+                            новых предложений. Таким образом новая модель
+                            организационной деятельности в значительной
+                            степени обуславливает создание систем массового участия.
+                        </p>
                     </div>
-                        <div class="more">
-                            <a href="/films/">
-                        БОЛЬШЕ
-                        <svg width="26" height="14" viewBox="0 0 26 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1.18463 1L13 13.2789L24.8154 1L1.18463 1Z" fill="#654145" stroke="#654145"/>
-                        </svg>
-                        </a>
-                    </div>
-                    
-                    
                 </div>
-                <div class="section-name">
-                    ГАЛЕРЕЯ
-                </div>
-                <div class="film-container">
+            </div>
+            <div class="gallery-container">
 
-                    
-        </div>
-        <div class="gallery-container">
+                    <?php foreach ($artsList as $artItem): ?>
 
-
-
-                <?php foreach ($artsList as $artItem): ?>
-
-
-
-               
-                <div class="art-container" id="<?php echo $artItem['art_id']; ?>">
-                    <img src="/application/views/template/images/arts/<?php echo $artItem['art_id']; ?>.jpg" data-type="picture" alt="">
-                    <div class="space">
+                    <div class="art-container" id="<?php echo $artItem['art_id']; ?>">
+                        <img src="/application/views/template/images/arts/<?php echo $artItem['art_id']; ?>.jpg" data-type="picture" alt="">
+                        <div class="space">
                             <a href="/gallery/<?php echo $artItem['art_id']; ?>">
                                 <div class="inner-space" style="background-color:<?php echo $artItem['low_color'];?>;">
                                     <svg id="first" class="corner" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -197,26 +185,21 @@
                                 </div>                
                             </div> 
                         </div>
-                      
-                    <a href="/user/<?= $artItem['login']; ?>/">
-                        <?= $artItem['login']; ?>
-                    </a>
-                </div>
+                          
+                        <a href="/user/<?= $artItem['login']; ?>/">
+                            <?= $artItem['login']; ?>
+                        </a>
+                    </div>
 
+                    <?php endforeach; ?>
 
-             
-                <?php endforeach; ?>
-
-                </div>
-                        <div class="more">
-                            <a href="/gallery/">
-                            БОЛЬШЕ
-                            <svg width="26" height="14" viewBox="0 0 26 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1.18463 1L13 13.2789L24.8154 1L1.18463 1Z" fill="#654145" stroke="#654145"/>
-                            </svg>
-                            </a> 
-                        </div>    
-                </div>
+            </div>
+            <div class="more">
+                БОЛЬШЕ
+                <svg width="26" height="14" viewBox="0 0 26 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.18463 1L13 13.2789L24.8154 1L1.18463 1Z" fill="#654145" stroke="#654145"/>
+                </svg>
+            </div> 
 
         </div>
         <?php require_once(ROOT . '/application/views/modules/lift/lift.php') ?>

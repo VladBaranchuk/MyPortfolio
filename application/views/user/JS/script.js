@@ -78,10 +78,10 @@ function fetchSort(){
 		        }
 
 		        if(flag == 1){
-		        	return '<path d="M12.2 0.5L9.5 3.32353L6.8 0.5H3.2L0.5 3.32353V7.08824L9.5 16.5L18.5 7.08824V3.32353L15.8 0.5H12.2Z" stroke="#FFFFFF" fill-opacity="1" fill="#FFFFFF"/>'
+		        	return '<path d="M12.2 0.5L9.5 3.32353L6.8 0.5H3.2L0.5 3.32353V7.08824L9.5 16.5L18.5 7.08824V3.32353L15.8 0.5H12.2Z" stroke="' + data[0][i].high_color + '" fill-opacity="1" fill="' + data[0][i].high_color + '"/>'
 		        }
 		        else {
-		        	return '<path d="M12.2 0.5L9.5 3.32353L6.8 0.5H3.2L0.5 3.32353V7.08824L9.5 16.5L18.5 7.08824V3.32353L15.8 0.5H12.2Z" stroke="#FFFFFF" fill-opacity="0" fill="#FFFFFF"/>'
+		        	return '<path d="M12.2 0.5L9.5 3.32353L6.8 0.5H3.2L0.5 3.32353V7.08824L9.5 16.5L18.5 7.08824V3.32353L15.8 0.5H12.2Z" stroke="' + data[0][i].high_color + '" fill-opacity="0" fill="' + data[0][i].high_color + '"/>'
 		        }
 			}
 
@@ -97,43 +97,43 @@ function fetchSort(){
 
 			  		html = "<img src='/application/views/template/images/arts/" + data[0][i].art_id + ".jpg' data-type='picture' alt=''>"
 		                    +"<div class='space'>"
-		                        +"<a href='" + data[0][i].art_id + "'>"
-		                            +"<div class='inner-space'>"
+		                        +"<a href='/gallery/" + data[0][i].art_id + "'>"
+		                            +"<div class='inner-space' style='background-color:" + data[0][i].low_color + ";'>"
 		                                +"<svg id='first' class='corner' width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'>"
-		                                    +"<path d='M0.5 12.5V0.5H12.5' stroke='#FFFFFF' />"
+		                                    +"<path d='M0.5 12.5V0.5H12.5' stroke='" + data[0][i].high_color + "' />"
 		                               	+"</svg>"
 		                                +"<svg id='second' class='corner' width='14' height='13' viewBox='0 0 14 13' fill='none' xmlns='http://www.w3.org/2000/svg'>"
-		                                    +"<path d='M0.500024 1.47556L12.5 1.5L12.4756 13.5' stroke='#FFFFFF'/>"
+		                                    +"<path d='M0.500024 1.47556L12.5 1.5L12.4756 13.5' stroke='" + data[0][i].high_color + "'/>"
 		                                +"</svg>"
 		                                +"<svg id='third' class='corner' width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'>"
-		                                    +"<path d='M12.5244 0.499048L12.5 12.499L0.500025 12.4746' stroke='#FFFFFF' />"
+		                                    +"<path d='M12.5244 0.499048L12.5 12.499L0.500025 12.4746' stroke='" + data[0][i].high_color + "' />"
 		                                +"</svg>"
 		                                +"<svg id='fourth' class='corner' width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'>"
-		                                    +"<path d='M12.5 12.5L0.5 12.5L0.499999 0.5' stroke='#FFFFFF' />"
+		                                    +"<path d='M12.5 12.5L0.5 12.5L0.499999 0.5' stroke='" + data[0][i].high_color + "' />"
 		                                +"</svg>"
 		                            +"</div>"
-		                        +'</a><div class="outer-space">'
+		                        +'</a><div class="outer-space" style="background-color:' + data[0][i].low_color + '00' + ';">'
 		                            +'<div class="icons">'
 		                                +'<svg class="likes" width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">'
 		                                    + likes(i)
 		                                +'</svg>'
 		                                +'<svg class="comments" width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">'
-		                                    +'<rect x="0.5" y="0.5" width="20" height="14" stroke="#FFFFFF"/>'
-		                                    +'<path d="M0.477295 0.46875L10.5 7.5L20.5227 0.46875" stroke="#FFFFFF"/>'
+		                                    +'<rect x="0.5" y="0.5" width="20" height="14" stroke="' + data[0][i].high_color + '"/>'
+		                                    +'<path d="M0.477295 0.46875L10.5 7.5L20.5227 0.46875" stroke="' + data[0][i].high_color + '"/>'
 		                                +'</svg>'
 		                                +'<svg class="share" width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">'
-		                                    +'<path d="M0.5 5.5V16.5H10H19.5V5.5" stroke="#FFFFFF"/>'
-		                                    +'<path d="M10.3536 0.146446C10.1583 -0.0488157 9.84171 -0.0488157 9.64645 0.146446L6.46447 3.32843C6.2692 3.52369 6.2692 3.84027 6.46447 4.03553C6.65973 4.2308 6.97631 4.2308 7.17157 4.03553L10 1.20711L12.8284 4.03553C13.0237 4.2308 13.3403 4.2308 13.5355 4.03553C13.7308 3.84027 13.7308 3.52369 13.5355 3.32843L10.3536 0.146446ZM10.5 10.5L10.5 0.5L9.5 0.5L9.5 10.5L10.5 10.5Z" fill="#FFFFFF"/>'
+		                                    +'<path d="M0.5 5.5V16.5H10H19.5V5.5" stroke="' + data[0][i].high_color + '"/>'
+		                                    +'<path d="M10.3536 0.146446C10.1583 -0.0488157 9.84171 -0.0488157 9.64645 0.146446L6.46447 3.32843C6.2692 3.52369 6.2692 3.84027 6.46447 4.03553C6.65973 4.2308 6.97631 4.2308 7.17157 4.03553L10 1.20711L12.8284 4.03553C13.0237 4.2308 13.3403 4.2308 13.5355 4.03553C13.7308 3.84027 13.7308 3.52369 13.5355 3.32843L10.3536 0.146446ZM10.5 10.5L10.5 0.5L9.5 0.5L9.5 10.5L10.5 10.5Z" fill="' + data[0][i].high_color + '"/>'
 		                                +'</svg>'
 		                            +'</div>'
-		                            +'<div class="stat">'
+		                            +'<div class="stat" style="color:' + data[0][i].high_color + '">'
 			                           	+ lk(i, 1)
 					                    + lk2(i, 2)
 		                                +'<span id="share"></span>'
 		                            +'</div>'                
 		                        +'</div>' 
 		                    +'</div>' 
-		                    +'<a href="">'
+		                    +'<a href="/user/' + data[0][i].login +'">'
 		                        + data[0][i].login
 		                    +'</a>'
 		  		

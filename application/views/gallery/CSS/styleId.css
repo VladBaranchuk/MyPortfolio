@@ -374,3 +374,7 @@
 	justify-content: space-between;
 	margin-bottom: 10px;
 }
+.comment-information div a{
+	color:#654145;
+	text-decoration: none;
+}

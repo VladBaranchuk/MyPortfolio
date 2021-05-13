@@ -10,12 +10,12 @@
 
 			if(!empty($_POST['more'])){
 
-					$List = [Gallery::getArtsListLimit(6, $_POST['more']), Gallery::getLikesByArts(), Gallery::getСommentsByArts(), Gallery::getLikesListByArtsFromUser('@mariaolhtz')];
+					$List = [Gallery::getArtsListLimit(6, $_POST['more']), Gallery::getLikesByArts(), Gallery::getСommentsByArts(), Gallery::getLikesListByArtsFromUser($_SESSION["login"])];
 					$_POST['more'] = null;
 		        	exit(json_encode($List, JSON_UNESCAPED_UNICODE));
 			}
 			if(!empty($_POST['id'])){
-					$result = Gallery::setUpLikesByArts($_POST['id'], '@mariaolhtz');
+					$result = Gallery::setUpLikesByArts($_POST['id'], $_SESSION["login"]);
 		        	exit($result);
 			}
 			
@@ -23,7 +23,7 @@
 
 			$artsLike = Gallery::getLikesByArts();
 
-			$userLikes = Gallery::getLikesListByArtsFromUser('@mariaolhtz');
+			$userLikes = Gallery::getLikesListByArtsFromUser($_SESSION["login"]);
 
 			$artsComments = Gallery::getСommentsByArts();
 
@@ -38,7 +38,7 @@
 
 			$artsLike = Gallery::getLikesByArts();
 
-			$userLikes = Gallery::getLikesListByArtsFromUser('@mariaolhtz');
+			$userLikes = Gallery::getLikesListByArtsFromUser($_SESSION["login"]);
 			
 			$artsItem = Gallery::getArtsItemById($id);
 
@@ -47,7 +47,7 @@
 			$comments = Comments::getCommentsListById($id, 'art');
 
 			if(!empty($_POST['message'])){
-					$result = Comments::setComment('@mariaolhtz', $_POST['id'], 'art', $_POST['message']);
+					$result = Comments::setComment($_SESSION["login"], $_POST['id'], 'art', $_POST['message']);
 		        	exit(json_encode($result, JSON_UNESCAPED_UNICODE));
 			}
 

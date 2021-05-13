@@ -25,7 +25,9 @@
     overflow: hidden;
     width: 100%;
 }
-
+.items a{
+    text-decoration: none;
+}
 .item{
     display: flex;
     flex-shrink: 0;
@@ -254,7 +256,6 @@
 	width: 100%;
 	height: 100%;
 	display: flex;
-	background: #211516;
 	opacity: 0;
 }
 .inner-space svg{

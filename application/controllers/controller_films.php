@@ -29,11 +29,11 @@
 		public function actionView($id){  // Выпрашивает у модели один
 
 			if(!empty($_POST['message'])){
-					$result = Comments::setComment('@mariaolhtz', $_POST['id'], 'film', $_POST['message']);
+					$result = Comments::setComment($_SESSION["login"], $_POST['id'], 'film', $_POST['message']);
 		        	exit(json_encode($result, JSON_UNESCAPED_UNICODE));
 			}
 			if(!empty($_POST['id'])){
-					$result = Films::setUpLikesByFilms($_POST['id'], '@mariaolhtz');
+					$result = Films::setUpLikesByFilms($_POST['id'], $_SESSION["login"]);
 		        	exit($result);
 			}
 			
@@ -43,7 +43,7 @@
 
 			$filmsLike = Films::getLikesByFilms();
 
-			$userLikes = Films::getLikesListByFilmsFromUser('@mariaolhtz');
+			$userLikes = Films::getLikesListByFilmsFromUser($_SESSION["login"]);
 
 			$filmsComments = Films::getСommentsByFilms();
 

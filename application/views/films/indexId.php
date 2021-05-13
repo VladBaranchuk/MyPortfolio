@@ -174,7 +174,9 @@
                         <div class="comment-ifn-container">
                             <div class="comment-information">
                                 <div>
-                                    <?php echo $comment['login']; ?>
+                                    <a href="/user/<?php echo $comment['login']; ?>">
+                                        <?php echo $comment['login']; ?>
+                                    </a>
                                 </div>
                                 <div style="color: #65414580;">
                                     <?php echo date('d.m.Y', strtotime($comment['date']));  ?>

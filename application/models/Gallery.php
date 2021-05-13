@@ -51,7 +51,7 @@
 			$db = DB::getConnection();
 			$newList = array();
 
-			$result = $db->query('SELECT art_id, login, type, name, year, month, date '
+			$result = $db->query('SELECT art_id, login, type, name, year, month, high_color, middle_color, low_color, date '
 					. 'FROM art '
 					. 'LIMIT ' . $position . ',' . $limit);
 
@@ -63,6 +63,36 @@
 				$newList[$i]['name'] = $row['name'];
 				$newList[$i]['year'] = $row['year'];
 				$newList[$i]['month'] = $row['month'];
+				$newList[$i]['high_color'] = $row['high_color'];
+				$newList[$i]['middle_color'] = $row['middle_color'];
+				$newList[$i]['low_color'] = $row['low_color'];
+				$newList[$i]['date'] = $row['date'];
+				$i++;
+			}
+
+			return $newList;
+		}
+
+		public static function getArtsListLogin($login, $limit, $position = 0){
+
+			$db = DB::getConnection();
+
+			$newList = array();
+
+			$result = $db->query('SELECT * FROM art WHERE login = "' . $login . '" LIMIT ' . $position . ',' . $limit);
+
+
+			$i = 0;
+			while($row = $result->fetch()) {
+				$newList[$i]['art_id'] = $row['art_id'];
+				$newList[$i]['login'] = $row['login'];
+				$newList[$i]['type'] = $row['type'];
+				$newList[$i]['name'] = $row['name'];
+				$newList[$i]['year'] = $row['year'];
+				$newList[$i]['month'] = $row['month'];
+				$newList[$i]['high_color'] = $row['high_color'];
+				$newList[$i]['middle_color'] = $row['middle_color'];
+				$newList[$i]['low_color'] = $row['low_color'];
 				$newList[$i]['date'] = $row['date'];
 				$i++;
 			}
@@ -143,6 +173,22 @@
 			}
 
 			return $newList;
+		}
+
+		public static function getNumberByArts($login, $type){
+
+			$db = DB::getConnection();
+
+			$stmt = $db->prepare("SELECT art_id FROM art WHERE login = :login AND type = :type");
+
+			$stmt->bindParam(':login', $login);
+			$stmt->bindParam(':type', $type);
+
+			$stmt->execute();
+
+			$row = $stmt->rowCount();
+
+			return $row;
 		}
 	}
 
