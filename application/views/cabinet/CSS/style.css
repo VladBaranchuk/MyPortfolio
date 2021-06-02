@@ -26,6 +26,46 @@
 	justify-content: space-between;
 	flex-direction: row !important;
 }
+.FIO-std, .FIO-write{
+	width: 100%;
+	display: flex !important;
+	flex-direction: row !important;
+	justify-content:space-between;
+}
+.FIO-write{
+	display: none !important;
+	pointer-events: none;
+}
+.legend-write{
+	display: none !important;
+	pointer-events: none;
+}
+.FIO-rewrite-input{
+	width: 510px;
+	height: 40px;
+	color:#654145;
+	box-sizing: border-box;
+	font-family: 'Playfair Display';
+	font-size: 30px;
+	border:0px solid white;
+    border-bottom:1px solid #654145;
+    border-right:1px solid #654145;
+}
+.legend-rewrite-input{
+	height: 300px;
+	color:#654145;
+	box-sizing: border-box;
+	margin-top: 18px;
+	align-content: stretch;
+	font-family: Raleway;
+	font-size: 18px;
+	border:0px solid white;
+    border-bottom:1px solid #654145;
+    border-right:1px solid #654145;
+}
+.legend-std p{
+	white-space: wrap;
+}
 .imtext{
     display: flex;
     justify-content: center;
@@ -49,6 +89,29 @@
     font-size: 18px;
     text-align: justify;
     color: #654145;
+}
+.img-full-controller{
+	margin-top: 7px;
+	margin-left: 5px;
+	display: flex !important;
+	flex-direction: row !important;
+}
+.add-full-image{
+	margin-right: 7px;
+}
+#formAvatar{
+	position: absolute;
+}
+#upload-photo {
+	cursor: pointer;
+   	position: absolute;
+   	z-index: 1;
+   	width: 18px;
+  	height: 18px;
+   	opacity: 0;
+}
+.share-full-image{
+	margin-right: 7px;
 }
 .gallery-container{
 	width: 100%;
@@ -183,6 +246,16 @@
 }
 [data-type="sculpture"]{
 	width: 814px;
+}
+
+.post-controller{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+.post-controller svg{
+	margin-left: 5px;
+	margin-top: 5px;
 }
 
 .more{

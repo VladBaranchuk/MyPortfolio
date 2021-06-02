@@ -44,16 +44,51 @@
  
             <div  class="about">
                 <div class="imtext">
+                    <div class="img-full-container">
                     <img src="/application/views/template/images/users/<?php echo $_SESSION['login']; ?>full.jpg" alt=""/>
+                        <div class="img-full-controller">
+                            <div class="add-full-image-input">
+                                <svg class="add-full-image" for="upload-photo" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="0.5" y="0.5" width="16.1428" height="16.1428" stroke="#654145"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.07141 9.07129V11.5713H9.07141V9.07129H11.5714V8.07129H9.07141V5.57129H8.07141V8.07129H5.57141V9.07129H8.07141Z" fill="#654145"/>
+                                </svg>
+                                <form action="/cabinet/" id="formAvatar" method="post" enctype="multipart/form-data">
+                                    <input type="file" name="avatar" id="upload-photo" />
+                                </form>
+                            </div>
+                            
+                            <svg class="share-full-image" width="21" height="17" viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 5.5V16.5H10.5H20V5.5" stroke="#654145"/>
+                                <path d="M10.8536 0.146446C10.6583 -0.0488157 10.3417 -0.0488157 10.1464 0.146446L6.96447 3.32843C6.7692 3.52369 6.7692 3.84027 6.96447 4.03553C7.15973 4.2308 7.47631 4.2308 7.67157 4.03553L10.5 1.20711L13.3284 4.03553C13.5237 4.2308 13.8403 4.2308 14.0355 4.03553C14.2308 3.84027 14.2308 3.52369 14.0355 3.32843L10.8536 0.146446ZM11 10.5L11 0.5L10 0.5L10 10.5L11 10.5Z" fill="#654145"/>
+                            </svg>
+                            <svg class="remove-full-image" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.17227 16.5L0.844683 3H15.6575L13.3299 16.5H3.17227Z" stroke="#654145"/>
+                                <path d="M8.2511 6L8.2511 14" stroke="#654145"/>
+                                <path d="M11.7511 6L10.7511 14" stroke="#654145"/>
+                                <path d="M4.7511 6L5.7511 14" stroke="#654145"/>
+                                <path d="M0 0.5H16.5025" stroke="#654145"/>
+                            </svg>
+
+                        </div>
+                    </div>
                     <div>
                         <div class="data-header" style="margin: 0px;">
                             <div class="dataname">
                                 <div class="FIO-container">
-                                    <span class="FIO" style="font-size: 30px;"><?php echo $_SESSION["name"]; ?></span>
-                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="40" height="40" fill="transparent"/>
-                                        <path d="M11.5 33L13.1452 28.0645M11.5 33L16.4355 31.3548M11.5 33H27.4032M13.1452 28.0645L16.4355 31.3548M13.1452 28.0645L25.2097 16L28.5 19.2903L16.4355 31.3548" stroke="#654145"/>
-                                    </svg>
+                                    <div class="FIO-write">
+                                        <input type="text" class="FIO-rewrite-input">
+                                        <svg class="FIO-OK" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="40" height="40" fill="white"/>
+                                            <path d="M18 33L10 23.3667L11.1176 21.6667L17.8235 26.7667L27.8824 16L29 17.1333L18 33Z" fill="#654145"/>
+                                        </svg>
+                                    </div>
+                                    <div class="FIO-std">
+                                        <span class="FIO" style="font-size: 30px;"><?php echo $_SESSION["name"]; ?></span>
+                                        <svg class="FIO-rewrite" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="40" height="40" fill="transparent"/>
+                                            <path d="M11.5 33L13.1452 28.0645M11.5 33L16.4355 31.3548M11.5 33H27.4032M13.1452 28.0645L16.4355 31.3548M13.1452 28.0645L25.2097 16L28.5 19.2903L16.4355 31.3548" stroke="#654145"/>
+                                        </svg>
+                                    </div>
                                 </div>    
                                 <span class="login"><?php echo $_SESSION["login"]; ?></span>
                             </div>
@@ -72,29 +107,26 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="text-redactor">
-                            <svg width="560" height="40" viewBox="0 0 560 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0 24.5H522" stroke="#654145" stroke-opacity="0.3"/>
-                                <rect x="520" width="40" height="40" fill="white"/>
-                                <path d="M531 33L532.645 28.0645M531 33L535.935 31.3548M531 33H546.903M532.645 28.0645L535.935 31.3548M532.645 28.0645L544.71 16L548 19.2903L535.935 31.3548" stroke="#654145"/>
-                            </svg>
+                        <div class="legend-std">
+                            <div class="text-redactor">
+                                <svg class="legend-rewrite" width="560" height="40" viewBox="0 0 560 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 24.5H522" stroke="#654145" stroke-opacity="0.3"/>
+                                    <rect x="520" width="40" height="40" fill="white"/>
+                                    <path d="M531 33L532.645 28.0645M531 33L535.935 31.3548M531 33H546.903M532.645 28.0645L535.935 31.3548M532.645 28.0645L544.71 16L548 19.2903L535.935 31.3548" stroke="#654145"/>
+                                </svg>
+                            </div>
+                            <p><?php echo $_SESSION["legend"]; ?></p>
                         </div>
-                        <p>Идейные соображения высшего порядка,
-                            а также консультация с широким активом
-                            играет важную роль в формировании дальнейших
-                            направлений развития. Повседневная практика
-                            показывает, что сложившаяся структура организации
-                            позволяет выполнять важные задания
-                            по разработке модели развития. Не следует,
-                            однако забывать, что укрепление и развитие
-                            структуры способствует подготовки и реализации
-                            новых предложений. Разнообразный и богатый
-                            опыт сложившаяся структура организации
-                            позволяет выполнять важные задания по разработке
-                            новых предложений. Таким образом новая модель
-                            организационной деятельности в значительной
-                            степени обуславливает создание систем массового участия.
-                        </p>
+                        <div class="legend-write">
+                            <div class="legend-OK">
+                                <svg width="560" height="40" viewBox="0 0 560 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 24.5H522" stroke="#654145" stroke-opacity="0.3"/>
+                                    <rect x="520" width="40" height="40" fill="white"/>
+                                    <path d="M538 33L530 23.3667L531.118 21.6667L537.824 26.7667L547.882 16L549 17.1333L538 33Z" fill="#654145"/>
+                                </svg>
+                            </div>
+                            <textarea class="legend-rewrite-input"></textarea> 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -185,10 +217,18 @@
                                 </div>                
                             </div> 
                         </div>
-                          
-                        <a href="/user/<?= $artItem['login']; ?>/">
-                            <?= $artItem['login']; ?>
-                        </a>
+                        <div class="post-controller">
+                            <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.17227 16.5L0.844683 3H15.6575L13.3299 16.5H3.17227Z" stroke="#654145"/>
+                                <path d="M8.2511 6L8.2511 14" stroke="#654145"/>
+                                <path d="M11.7511 6L10.7511 14" stroke="#654145"/>
+                                <path d="M4.7511 6L5.7511 14" stroke="#654145"/>
+                                <path d="M0 0.5H16.5025" stroke="#654145"/>
+                            </svg>
+                            <a href="/user/<?= $artItem['login']; ?>/">
+                                <?= $artItem['login']; ?>
+                            </a>
+                        </div>
                     </div>
 
                     <?php endforeach; ?>

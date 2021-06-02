@@ -129,9 +129,18 @@ function fetchSort(){
 		                            +'</div>'                
 		                        +'</div>' 
 		                    +'</div>' 
-		                    +'<a href="/user/' + data[0][i].login +'">'
-		                        + data[0][i].login
-		                    +'</a>'
+		                    +'<div class="post-controller">'
+		                    	+'<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">'
+									+'<path d="M3.17227 16.5L0.844683 3H15.6575L13.3299 16.5H3.17227Z" stroke="#654145"/>'
+									+'<path d="M8.2511 6L8.2511 14" stroke="#654145"/>'
+									+'<path d="M11.7511 6L10.7511 14" stroke="#654145"/>'
+									+'<path d="M4.7511 6L5.7511 14" stroke="#654145"/>'
+									+'<path d="M0 0.5H16.5025" stroke="#654145"/>'
+								+'</svg>'
+		                    	+'<a href="/user/' + data[0][i].login +'">'
+		                        	+ data[0][i].login
+		                    	+'</a>'
+		                    +'</div>'
 		  		
 		  		art.innerHTML = html;
 
@@ -564,4 +573,165 @@ document.querySelector('.gallery-container').addEventListener("mouseout", (e) =>
 document.querySelector('.more').onclick = () => {
 
 	fetchSort();
+}
+
+document.querySelector('.FIO-rewrite').onclick = () => {
+
+	let span = document.querySelector('.FIO');
+	let container = document.querySelector('.FIO-std');
+	let container2 = document.querySelector('.FIO-write');
+
+	container.style.cssText = 'display: none !important; pointer-events: none;';
+	container2.style.cssText = 'display: flex !important; pointer-events: auto;';   
+
+	container2.querySelector('input').value = span.innerHTML;                               
+}
+
+document.querySelector('.FIO-OK').onclick = () => {
+
+	let input = document.querySelector('.FIO-rewrite-input');
+	let container = document.querySelector('.FIO-rewrite');
+
+	let span = document.querySelector('.FIO');
+
+	container = document.querySelector('.FIO-std');
+	let container2 = document.querySelector('.FIO-write');  
+
+	const url = '/cabinet/';
+
+	const body = new FormData();
+	body.set('name', input.value);
+
+
+	// function sendRequest(method, url, body = null) {
+	//   const headers = {
+	//   }
+
+	//   return fetch(url, {
+	//     method: method,
+	//     body: body,
+	//     headers: headers
+	//   }).then(response => {
+	//     if (response.ok) {
+	//       return response.json();
+	//     }
+
+	//     return response.json().then(error => {
+	//       const e = new Error('Что-то пошло не так')
+	//       e.data = error
+	//       throw e
+	//     })
+	//   })
+	// }
+
+
+	// sendRequest('POST', url, body)
+	//   .then((data) => {
+
+	// 	containe2.style.cssText = 'display: none !important; pointer-events: none;';
+	// 	container.style.cssText = 'display: flex !important; pointer-events: auto;'; 
+
+	// 	span.innerHTML = data[0];
+
+	//   })
+	//   .catch(err => console.log(err))
+}
+
+document.querySelector('.legend-rewrite').onclick = () => {
+
+	let p = document.querySelector('.legend-std p');
+	let container = document.querySelector('.legend-std');
+	let container2 = document.querySelector('.legend-write');
+
+	container.style.cssText = 'display: none !important; pointer-events: none;';
+	container2.style.cssText = 'display: flex !important; pointer-events: auto;';   
+
+	container2.querySelector('textarea').value = p.innerHTML;                               
+}
+
+document.querySelector('.legend-OK').onclick = () => {
+
+	let textarea = document.querySelector('.legend-rewrite-input');
+	let container = document.querySelector('.legend-std');
+	let container2 = document.querySelector('.legend-write');  
+
+	let p = document.querySelector('.legend-std p');
+
+	const url = '/cabinet/';
+
+	const body = new FormData();
+	body.set('legend', textarea.value);
+
+
+	function sendRequest(method, url, body = null) {
+	  const headers = {
+	  }
+
+	  return fetch(url, {
+	    method: method,
+	    body: body,
+	    headers: headers
+	  }).then(response => {
+	    if (response.ok) {
+	      return response.text();
+	    }
+
+	    return response.text().then(error => {
+	      const e = new Error('Что-то пошло не так')
+	      e.data = error
+	      throw e
+	    })
+	  })
+	}
+
+
+	sendRequest('POST', url, body)
+	  .then((data) => {
+
+		container2.style.cssText = 'display: none !important; pointer-events: none;';
+		container.style.cssText = 'display: flex !important; pointer-events: auto;';  
+
+		document.querySelector('.legend-std p').innerHTML = data;
+
+	  })
+	  .catch(err => console.log(err))                
+}
+
+document.querySelector('#upload-photo').onchange = () => {
+
+	document.querySelector('#formAvatar').submit();
+
+	// const url = '/cabinet/';
+
+	// let image = document.querySelector('#upload-photo').files[0];
+
+	// const body = new FormData(document.querySelector('#formAvatar'));
+
+	// function sendRequest(method, url, body = null) {
+	//   const headers = {
+	//   }
+
+	//   return fetch(url, {
+	//     method: method,
+	//     body: body,
+	//     headers: headers
+	//   }).then(response => {
+	//     if (response.ok) {
+	//       return response.json();
+	//     }
+
+	//     return response.json().then(error => {
+	//       const e = new Error('Что-то пошло не так')
+	//       e.data = error
+	//       throw e
+	//     })
+	//   })
+	// }
+
+
+	// sendRequest('POST', url, body)
+	//   .then((data) => {
+	//   		console.log(data);
+	//   })
+	//   .catch(err => console.log(err))  
 }

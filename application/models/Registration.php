@@ -41,6 +41,7 @@
 			while($row = $stmt->fetch()){
 				$_SESSION["name"] = $row['name'] . " " . $row['surname'] . " " . $row['middle_name'];
 				$_SESSION["login"] = $row['login'];
+				$_SESSION["legend"] = $row['legend'];
 			}
 
 			$_SESSION["pictures"] = Gallery::getNumberByArts($login, 'picture');

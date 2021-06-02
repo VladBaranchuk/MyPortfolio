@@ -2,10 +2,19 @@
 
 	include_once ROOT . '/application/models/Gallery.php';
 	include_once ROOT . '/application/models/Comments.php';
+	include_once ROOT . '/application/models/User.php';
 
 	class CabinetController{
 
 		public function actionIndex(){
+
+			if(!empty($_FILES['avatar'])){
+
+				$path = 'application/views/template/images/users/';
+				$tmp_name = $_FILES['avatar']['tmp_name'];
+
+				move_uploaded_file($tmp_name, $path . $_SESSION["login"] . 'full.jpg');
+			}
 
 			if(!empty($_POST['more'])){
 
@@ -18,6 +27,15 @@
 				$result = Gallery::setUpLikesByArts($_POST['id'], $_SESSION["login"]);
 	        	exit($result);
 			}
+
+			if(!empty($_POST['legend'])){
+				$result = User::rewriteLegend($_POST['legend'], $_SESSION["login"]);
+
+				exit($result['legend']);
+			}
+
+			
+
 			
 			$artsList = Gallery::getArtsListLogin($_SESSION["login"], 7);
 
