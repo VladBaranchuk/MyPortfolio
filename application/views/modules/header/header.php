@@ -42,7 +42,7 @@
 
                 <div class="profile">
                     <div class="avatar">
-                        <img src="/application/views/template/images/users/c.png" width="167" alt=""/>
+                        <img src="/application/views/template/images/users/<?php echo $_SESSION["login"] . '.jpg' ?>" width="167" alt=""/>
                     </div>
                     <div class="data-header">
                         <div class="dataname">

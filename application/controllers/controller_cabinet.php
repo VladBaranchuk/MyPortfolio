@@ -13,7 +13,11 @@
 				$path = 'application/views/template/images/users/';
 				$tmp_name = $_FILES['avatar']['tmp_name'];
 
-				move_uploaded_file($tmp_name, $path . $_SESSION["login"] . 'full.jpg');
+				if(move_uploaded_file($tmp_name, $path . $_SESSION["login"] . 'full.jpg')){
+					copy($path . $_SESSION["login"] . 'full.jpg', $path . $_SESSION["login"] . '.jpg');
+				}
+
+				
 			}
 
 			if(!empty($_POST['more'])){
